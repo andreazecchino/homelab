@@ -1,0 +1,28 @@
+# Apply taint to specific node:
+# kubectl taint node <node name> hardware=lowResource:NoSchedule
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-node-selector-taint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-node-selector-taint 
+  template:
+    metadata:
+      labels:
+        app: demo-node-selector-taint
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        kubernetes.io/arch: arm
+      tolerations:
+      - key: "hardware"
+        operator: "Equal"
+        value: "lowResource"
+        effect: "NoSchedule"
