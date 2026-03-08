@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commafeed
+  labels:
+    app: commafeed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commafeed
+  template:
+    metadata:
+      labels:
+        app: commafeed
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
+      containers:
+        - name: commafeed
+          image: athou/commafeed:latest-h2
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+          volumeMounts:
+            - name: commafeed
+              mountPath: /commafeed/data
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+      volumes:
+        - name: commafeed
+          persistentVolumeClaim:
+            claimName: commafeed
+      restartPolicy: Always
