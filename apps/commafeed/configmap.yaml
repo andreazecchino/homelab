@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: commafeed-configmap
+  labels:
+    app: commafeed
+data:
+  COMMAFEED_USERS_ALLOW_REGISTRATIONS: "true"
+  COMMAFEED_USERS_MINIMUM_PASSWORD_LENGTH: "12"
+  COMMAFEED_USERS_EMAIL_ADDRESS_REQUIRED: "true"
