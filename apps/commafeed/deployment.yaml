@@ -20,7 +20,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: commafeed
-          image: athou/commafeed:7.0.0-h2
+          image: athou/commafeed:7.0.0-postgresql
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -29,14 +29,7 @@ spec:
                 name: commafeed-configmap
             - secretRef:
                 name: commafeed-secrets
-          volumeMounts:
-            - name: commafeed-vol
-              mountPath: /commafeed/data
           ports:
             - containerPort: 8082
               protocol: TCP
-      volumes:
-        - name: commafeed-vol
-          persistentVolumeClaim:
-            claimName: commafeed-pvc
       restartPolicy: Always

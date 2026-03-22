@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: commafeed-ingress
+  labels:
+    app: commafeed
+spec:
+  rules:
+  - host: homelab.commafeed.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: commafeed
+            port:
+              number: 8082
