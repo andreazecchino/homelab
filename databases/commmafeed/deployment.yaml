@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
+      containers:
+      - name: postgres 
+        image: postgres:18.3-alpine3.23
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+        envFrom:
+          - configMapRef:
+              name: postgres-configmap
+          - secretRef:
+              name: postgres-secrets
+        volumeMounts:
+          - name: postgres-volume
+            mountPath: /var/lib/postgresql 
+        ports:
+          - containerPort: 5432
+            protocol: TCP
+      volumes:
+        - name: postgres-volume
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+      restartPolicy: Always
