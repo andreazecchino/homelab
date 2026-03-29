@@ -26,7 +26,7 @@ At the moment it isn't reachable from the Internet.
 | Automation | [Cloud-init](https://cloud-init.io) | Open source tool for automatically initializing and customizing an instance of a Linux distribution  |
 | Automation | [FluxCD](https://fluxcd.io) | GitOps tool to keep Kubernetes cluster in sync with sources of configuration |
 | Kubernetes | [K3s](https://k3s.io) | Lightweight Kubernetes distribution (with default settings) |
-| Kubernetes | [K9s](https://github.com/derailed/k9s) | Terminal-based UI for managing Kubernetes clusters |
+| Management | [K9s](https://github.com/derailed/k9s) | Terminal-based UI for managing Kubernetes clusters |
 
 ## Apps
 
