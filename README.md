@@ -10,11 +10,27 @@ This is the place where I began my journey with Kubernetes, with testing and tin
 
 Currently the cluster is running on:
 
-| Node | Role | Hardware | OS |
-| ---- | ---- | -------- | -- |
-| Raspberry Pi 4 | Control Plane | 4GB RAM, 64GB microSD | Raspberry Pi OS 64-bit |
-| Raspberry Pi 2 | Worker Node | 1GB RAM, 16GB microSD | Raspberry Pi OS 32-bit |
+| Node | Role | Hardware |
+| ---- | ---- | -------- |
+| Raspberry Pi 4 | Control Plane | 4GB RAM, 64GB microSD |
+| Raspberry Pi 4 | Worker Node | 4GB RAM, 64GB microSD |
+| Raspberry Pi 2 | Worker Node | 1GB RAM, 16GB microSD |
 
-With [K3s](https://k3s.io/) as Kubernetes distribution (with default settings).
+At the moment it isn't reachable from the Internet.
 
-I'm using [K9s](https://github.com/derailed/k9s) to manage the cluster.
+## Tech Stack
+
+| Category | Name | Description |
+| ---- | ---- | ----------- |
+| OS | [Raspberry Pi OS](https://www.raspberrypi.com/software/) | Raspberry Pi official operating system |
+| Automation  | [Cloud-init](https://cloud-init.io) | Open source tool for automatically initializing and customizing an instance of a Linux distribution  |
+| | [FluxCD](https://fluxcd.io) | GitOps tool to keep Kubernetes cluster in sync with sources of configuration |
+| Kubernetes | [K3s](https://k3s.io) | Lightweight Kubernetes distribution (with default settings) |
+| | [K9s](https://github.com/derailed/k9s) | Terminal-based UI for managing Kubernetes clusters |
+
+## Apps
+
+| Name | Description |
+| ---- | ----------- |
+| [Commafeed](https://www.commafeed.com) | A self-hosted RSS feed reader inspired by Google Reader |
+
