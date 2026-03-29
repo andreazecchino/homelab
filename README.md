@@ -23,10 +23,10 @@ At the moment it isn't reachable from the Internet.
 | Category | Name | Description |
 | ---- | ---- | ----------- |
 | OS | [Raspberry Pi OS](https://www.raspberrypi.com/software/) | Raspberry Pi official operating system |
-| <span rowspan="2">Automation</span>  | [Cloud-init](https://cloud-init.io) | Open source tool for automatically initializing and customizing an instance of a Linux distribution  |
-| | [FluxCD](https://fluxcd.io) | GitOps tool to keep Kubernetes cluster in sync with sources of configuration |
-| <span rowspan="2">Kubernetes</span> | [K3s](https://k3s.io) | Lightweight Kubernetes distribution (with default settings) |
-| | [K9s](https://github.com/derailed/k9s) | Terminal-based UI for managing Kubernetes clusters |
+| Automation | [Cloud-init](https://cloud-init.io) | Open source tool for automatically initializing and customizing an instance of a Linux distribution  |
+| Automation | [FluxCD](https://fluxcd.io) | GitOps tool to keep Kubernetes cluster in sync with sources of configuration |
+| Kubernetes | [K3s](https://k3s.io) | Lightweight Kubernetes distribution (with default settings) |
+| Kubernetes | [K9s](https://github.com/derailed/k9s) | Terminal-based UI for managing Kubernetes clusters |
 
 ## Apps
 
