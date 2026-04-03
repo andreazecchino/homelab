@@ -14,7 +14,6 @@ Currently the cluster is running on:
 | ---- | ---- | -------- |
 | Raspberry Pi 4 | Control Plane | 4GB RAM, 64GB microSD |
 | Raspberry Pi 4 | Worker Node | 4GB RAM, 64GB microSD |
-| Raspberry Pi 2 | Worker Node | 1GB RAM, 16GB microSD |
 
 At the moment it isn't reachable from the Internet.
 
