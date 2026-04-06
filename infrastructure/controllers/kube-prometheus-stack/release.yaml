@@ -13,6 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: kube-prometheus-stack
+        namespace: monitoring
       version: "82.18.0"
   valuesFrom:
     - kind: ConfigMap
