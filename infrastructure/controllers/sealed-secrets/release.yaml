@@ -15,8 +15,7 @@ spec:
       version: '>=1.15.0-0'
   install:
     crds: Create
-  # interval: 1h0m0s
-  interval: 2m0s
+  interval: 1h0m0s
   releaseName: sealed-secrets-controller
   storageNamespace: flux-system
   targetNamespace: flux-system
