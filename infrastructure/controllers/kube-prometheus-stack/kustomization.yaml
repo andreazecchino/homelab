@@ -4,4 +4,4 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
-
+  - dashboards/custom-dashboard-configmap.yaml
