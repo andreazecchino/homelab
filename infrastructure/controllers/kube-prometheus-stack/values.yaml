@@ -94,7 +94,7 @@ grafana:
   additionalDataSources:
     - name: Prometheus
       type: prometheus
-      url: http://prometheus-operated.kube-prometheus-stack.svc:9090
+      url: http://prometheus-operated.monitoring.svc:9090
   grafana.ini:
     security:
       allow_embedding: true
