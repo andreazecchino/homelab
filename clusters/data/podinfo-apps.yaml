@@ -12,6 +12,5 @@ spec:
   sourceRef:
     kind: GitRepository
     name: podinfo
-  targetNamespace: commafeed
   timeout: 3m0s
   wait: true
