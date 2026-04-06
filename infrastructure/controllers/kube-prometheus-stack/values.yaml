@@ -30,8 +30,6 @@ prometheus:
 grafana:
   enabled: true
   defaultDashboardsEnabled: true
-  deploymentStrategy:
-    type: Recreate
   service:
     type: ClusterIP
   resources:
