@@ -1,2 +1,3 @@
 secretsClear.yaml
 sealedSecretsKey.yaml
+publicSealedSecrets.pem
