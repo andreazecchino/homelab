@@ -61,14 +61,14 @@ grafana:
         editable: false
         options:
           path: /var/lib/grafana/dashboards/kubernetes
-      - name: 'grafana-dashboards-infrastructure'
-        orgId: 1
-        folder: 'Infrastructure'
-        type: file
-        disableDeletion: true
-        editable: false
-        options:
-          path: /var/lib/grafana/dashboards/infrastructure
+      # - name: 'grafana-dashboards-infrastructure'
+      #   orgId: 1
+      #   folder: 'Infrastructure'
+      #   type: file
+      #   disableDeletion: true
+      #   editable: false
+      #   options:
+      #     path: /var/lib/grafana/dashboards/infrastructure
   dashboards:
     kubernetes:
       k8s-views-global:

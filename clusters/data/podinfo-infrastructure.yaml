@@ -5,12 +5,12 @@ metadata:
   name: infrastructure 
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/controllers
-  prune: true
-  retryInterval: 2m0s
+  interval: 1h
+  retryInterval: 2m
+  timeout: 5m
   sourceRef:
     kind: GitRepository
     name: podinfo
-  timeout: 3m0s
+  path: ./infrastructure/base/controllers
   wait: true
+  prune: true

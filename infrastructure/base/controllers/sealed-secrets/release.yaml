@@ -5,7 +5,7 @@ metadata:
   name: sealed-secrets
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 10m
   chart:
     spec:
       chart: sealed-secrets
