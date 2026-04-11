@@ -36,6 +36,8 @@ spec:
           - containerPort: 5432
             protocol: TCP
   volumeClaimTemplates:
+  - metadata:
+      name: postgres-volume
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: local-path
