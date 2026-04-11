@@ -5,8 +5,7 @@ metadata:
   labels:
     app: postgres
 spec:
-  accessModes:
-    - ReadWriteOnce
+  accessModes: [ "ReadWriteOnce" ]
   storageClassName: local-path
   resources:
     requests:
