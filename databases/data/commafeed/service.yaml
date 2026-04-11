@@ -6,8 +6,9 @@ metadata:
     app: postgres
 spec:
   selector:
-    app: postgres 
+    app: postgres
   type: ClusterIP
+  clusterIP: None
   ports:
     - port: 5432
       protocol: TCP
