@@ -15,10 +15,10 @@ spec:
       labels:
         app: postgres
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
+      # securityContext:
+      #   runAsUser: 1000
+      #   runAsGroup: 3000
+      #   fsGroup: 2000
       containers:
       - name: postgres
         image: postgres:18.3-alpine3.23
