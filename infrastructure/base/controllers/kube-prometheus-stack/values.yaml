@@ -1,9 +1,13 @@
+# Global settings
+global:
+  rbac:
+    create: true
+
+# CRD configuration
 crds:
   enabled: true
 
-alertmanager:
-  enabled: false
-
+# Prometheus configuration
 prometheus:
   enabled: true
   service:
@@ -12,6 +16,7 @@ prometheus:
     podMonitorNamespaceSelector:
       matchLabels:
         app.kubernetes.io/component: monitoring
+    # Resource allocation
     resources:
       requests:
         cpu: 100m
@@ -19,19 +24,27 @@ prometheus:
       limits:
         cpu: 500m
         memory: 1Gi
+    # Scrape configuration
     scrapeInterval: 30s
     evaluationInterval: 30s
     scrapeTimeout: 10s
+    # Enable service discovery for dynamic targets
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
 
+# Alertmanager configuration
+alertmanager:
+  enabled: false
+
+# Grafana configuration
 grafana:
   enabled: true
   defaultDashboardsEnabled: true
   service:
     type: ClusterIP
+  # Resource allocation
   resources:
     requests:
       cpu: 100m
@@ -39,6 +52,7 @@ grafana:
     limits:
       cpu: 500m
       memory: 512Mi
+  # Sidecat for dashboard discovery
   sidecar:
     dashboards:
       enabled: true
@@ -49,53 +63,57 @@ grafana:
         allowUiUpdates: true
         disableDelete: false
         foldersFromFilesStructure: false
-  dashboardProviders:
-    dashboardproviders.yaml:
-      apiVersion: 1
-      providers:
-      - name: 'grafana-dashboards-kubernetes'
-        orgId: 1
-        folder: 'Kubernetes'
-        type: file
-        disableDeletion: true
-        editable: false
-        options:
-          path: /var/lib/grafana/dashboards/kubernetes
-      # - name: 'grafana-dashboards-infrastructure'
-      #   orgId: 1
-      #   folder: 'Infrastructure'
-      #   type: file
-      #   disableDeletion: true
-      #   editable: false
-      #   options:
-      #     path: /var/lib/grafana/dashboards/infrastructure
-  dashboards:
-    kubernetes:
-      k8s-views-global:
-        gnetId: 15757
-        revision: 37
-        datasource: Prometheus
-      k8s-views-namespaces:
-        gnetId: 15758
-        revision: 34
-        datasource: Prometheus
-      k8s-views-nodes:
-        gnetId: 15759
-        revision: 29
-        datasource: Prometheus
-      k8s-views-pods:
-        gnetId: 15760
-        revision: 28
-        datasource: Prometheus
-      node-exporter-full:
-        gnetId: 1860
-        revision: 36
-        datasource: Prometheus
+  # Community dashboards
+  # dashboardProviders:
+  #   dashboardproviders.yaml:
+  #     apiVersion: 1
+  #     providers:
+  #     - name: 'grafana-dashboards-kubernetes'
+  #       orgId: 1
+  #       folder: 'Kubernetes'
+  #       type: file
+  #       disableDeletion: true
+  #       editable: false
+  #       options:
+  #         path: /var/lib/grafana/dashboards/kubernetes
+  #     # - name: 'grafana-dashboards-infrastructure'
+  #     #   orgId: 1
+  #     #   folder: 'Infrastructure'
+  #     #   type: file
+  #     #   disableDeletion: true
+  #     #   editable: false
+  #     #   options:
+  #     #     path: /var/lib/grafana/dashboards/infrastructure
+  # dashboards:
+  #   kubernetes:
+  #     k8s-views-global:
+  #       gnetId: 15757
+  #       revision: 37
+  #       datasource: Prometheus
+  #     k8s-views-namespaces:
+  #       gnetId: 15758
+  #       revision: 34
+  #       datasource: Prometheus
+  #     k8s-views-nodes:
+  #       gnetId: 15759
+  #       revision: 29
+  #       datasource: Prometheus
+  #     k8s-views-pods:
+  #       gnetId: 15760
+  #       revision: 28
+  #       datasource: Prometheus
+  #     node-exporter-full:
+  #       gnetId: 1860
+  #       revision: 36
+  #       datasource: Prometheus
   additionalDataSources:
     - name: Prometheus
       type: prometheus
       url: http://prometheus-operated.monitoring.svc:9090
+  # Grafana configuration
   grafana.ini:
+    # server:
+    #   root_url: https://grafana.homelab.local
     security:
       allow_embedding: true
       cookie_secure: true
@@ -108,6 +126,7 @@ grafana:
     explore:
       enabled: true
 
+# Node Exporter configuration
 nodeExporter:
   enabled: true
   hostRootFsMount:
@@ -125,6 +144,7 @@ nodeExporter:
       cpu: 100m
       memory: 128Mi
 
+# kube-state-metrics configuration
 kubeStateMetrics:
   enabled: true
   resources:
@@ -135,6 +155,7 @@ kubeStateMetrics:
       cpu: 100m
       memory: 128Mi
 
+# Prometheus Operator configuration
 prometheusOperator:
   enabled: true
   admissionWebhooks:
@@ -149,6 +170,7 @@ prometheusOperator:
       cpu: 250m
       memory: 256Mi
 
+# Additional monitoring components
 kubelet:
   enabled: true
   serviceMonitor:
@@ -161,4 +183,19 @@ coreDns:
   enabled: true
   serviceMonitor:
     interval: 30s
-
+kubeControllerManager:
+  enabled: true
+  serviceMonitor:
+    interval: 30s
+kubeScheduler:
+  enabled: true
+  serviceMonitor:
+    interval: 30s
+kubeEtcd:
+  enabled: true
+  serviceMonitor:
+    interval: 30s
+kubeProxy:
+  enabled: true
+  serviceMonitor:
+    interval: 30s
