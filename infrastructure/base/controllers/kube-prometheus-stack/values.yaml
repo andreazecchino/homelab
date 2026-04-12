@@ -52,7 +52,7 @@ grafana:
     limits:
       cpu: 500m
       memory: 512Mi
-  # Sidecat for dashboard discovery
+  # Sidecar for dashboard discovery
   sidecar:
     dashboards:
       enabled: true
@@ -183,19 +183,19 @@ coreDns:
   enabled: true
   serviceMonitor:
     interval: 30s
-kubeControllerManager:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
-kubeScheduler:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
-kubeEtcd:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
-kubeProxy:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
+# kubeControllerManager:
+#   enabled: true
+#   serviceMonitor:
+#     interval: 30s
+# kubeScheduler:
+#   enabled: true
+#   serviceMonitor:
+#     interval: 30s
+# kubeEtcd:
+#   enabled: true
+#   serviceMonitor:
+#     interval: 30s
+# kubeProxy:
+#   enabled: true
+#   serviceMonitor:
+#     interval: 30s
