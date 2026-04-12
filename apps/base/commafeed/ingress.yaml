@@ -5,8 +5,12 @@ metadata:
   labels:
     app: commafeed
 spec:
+  tls:
+  - hosts:
+    - commafeed.homelab.local
+    secretName: commafeed-cert
   rules:
-  - host: homelab.commafeed.local
+  - host: commafeed.homelab.local
     http:
       paths:
       - path: /
