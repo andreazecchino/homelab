@@ -1,10 +1,12 @@
 # Homelab
 
-This is the place where I began my journey with Kubernetes.
+This repository contains all the documentation and configuration of my Kubernetes homelab powered by [K3s](https://k3s.io).
 
 ## Introduction
 
-The scope of this project is to build a Kubernetes cluster with [K3s](https://k3s.io), learn to deploy applications and automate its deployment and configuration applying **IaC** and **GitOps** methodologies.
+The primary goal of this project is to build a Kubernetes cluster, learn to deploy applications and automate configuration using **GitOps** methodologies. Additionally, I plan to self-host some applications for personal use.
+
+See [docs/overview.md](docs/overview.md) for additional informations.
 
 ## Hardware
 
@@ -19,32 +21,15 @@ At the moment it isn't reachable from the Internet.
 
 ## Technology Stack
 
-**Operating System**:
-
-- **[Raspberry Pi OS](https://www.raspberrypi.com/software/)**: Raspberry Pi official operating system
-
-**Automation**:
-
-- **[Cloud-init](https://cloud-init.io)**: Open source tool for automatically initializing and customizing an instance of a Linux distribution
-- **[FluxCD](https://fluxcd.io)**: GitOps tool to automate the deployment and lifecycle management of applications and infrastructure on Kubernetes
-
-**Kubernetes Distribution**:
-
-- **[K3s](https://k3s.io)**: Lightweight Kubernetes distribution (with default settings)
-
-**Management**:
-
-- **[K9s](https://github.com/derailed/k9s)**: Terminal-based UI for managing Kubernetes clusters
-
-**Observability**
-
-- **[Prometheus](https://prometheus.io)**: An open-source monitoring and alerting toolkit
-- **[Grafana](https://grafana.com)**: Web application for monitoring data
+- [Raspberry Pi OS](https://www.raspberrypi.com/software/): Raspberry Pi official operating system
+- [K3s](https://k3s.io): Lightweight Kubernetes distribution for resource-retrained, remote or IoT environments.
+- [K9s](https://github.com/derailed/k9s): Terminal-based UI for managing Kubernetes clusters
+- [Cloud-init](https://cloud-init.io): Open source tool for automatically initializing and customizing an instance of a Linux distribution
+- [FluxCD](https://fluxcd.io): GitOps tool to automate the deployment and lifecycle management of applications and infrastructure on Kubernetes
+- [Prometheus](https://prometheus.io): Open source metrics collection and alerting system
+- [Grafana](https://grafana.com): Web-based visualization and dashboarding platform for querying and displaying metrics
 
 
-## End User Applications
+## Deployed Applications
 
-| Name | Description |
-| ---- | ----------- |
-| [Commafeed](https://www.commafeed.com) | A self-hosted RSS feed reader inspired by Google Reader |
-
+- [Commafeed](https://www.commafeed.com): a self-hosted RSS feed reader inspired by Google Reader
