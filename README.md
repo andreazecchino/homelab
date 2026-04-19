@@ -14,8 +14,8 @@ Currently the cluster is running on:
 
 | Node | Role | Hardware |
 | ---- | ---- | -------- |
-| Raspberry Pi 4 | Control Plane | 4GB RAM, 64GB microSD |
-| Raspberry Pi 4 | Worker Node | 4GB RAM, 64GB microSD |
+| Raspberry Pi 4 | Control Plane | 4GB RAM, 64GB microSD (OS) + 256GB USB Flash Drive (Longhorn) |
+| Raspberry Pi 4 | Worker Node | 4GB RAM, 64GB microSD (OS) |
 
 At the moment it isn't reachable from the Internet.
 
@@ -28,6 +28,7 @@ At the moment it isn't reachable from the Internet.
 - [FluxCD](https://fluxcd.io): GitOps tool to automate the deployment and lifecycle management of applications and infrastructure on Kubernetes
 - [Prometheus](https://prometheus.io): Open source metrics collection and alerting system
 - [Grafana](https://grafana.com): Web-based visualization and dashboarding platform for querying and displaying metrics
+- [Longhorn](https://longhorn.io/): Distributed block storage system for Kubernetes
 
 
 ## Deployed Applications
