@@ -53,9 +53,9 @@ alertmanager:
 # Grafana configuration
 grafana:
   enabled: true
-  # admin:
-  #   existingSecret: grafana-secrets
-  #   passwordKey: admin-password
+  admin:
+    existingSecret: grafana-secrets
+    # passwordKey: admin-password
   defaultDashboardsEnabled: true
   deploymentStrategy:
     type: Recreate
