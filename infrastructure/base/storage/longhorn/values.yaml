@@ -1,0 +1,50 @@
+longhorn:
+  replicas: 1 # for small clusters
+
+csi:
+  attacher:
+    replicas: 1
+  provisioner:
+    replicas: 1
+  resizer:
+    replicas: 1
+  snapshotter:
+    replicas: 1
+
+defaultSettings:
+  defaultDataPath: "/mnt/storage/longhorn"
+  defaultDataLocality: "best-effort"
+  defaultClassReplicaCount: 1 # (no redundancy); 2 replicas for 3+ nodes
+  mkfsExt4Parameters: "-F" # Force formatting to fix device busy errors
+  guaranteedInstanceManagerCPU: 5 # Reduce from default 12%
+
+preUpgradeChecker:
+  jobEnabled: false
+
+persistence:
+  defaultClass: true
+  defaultClassReplicaCount: 1 # Data replicas per volume
+  defaultFsType: ext4
+  reclaimPolicy: Delete
+  defaultMkfsParams: "-F" # Force mkfs to handle device busy issues
+
+longhornManager:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+longhornDriver:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+ingress:
+  enabled: false
