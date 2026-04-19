@@ -11,6 +11,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: podinfo
-  path: ./infrastructure/base
+  path: ./infrastructure/base/controllers
   wait: true
   prune: true

@@ -6,6 +6,7 @@ metadata:
   namespace: monitoring
 spec:
   interval: 30m
+  timeout: 15m
   chart:
     spec:
       chart: kube-prometheus-stack
@@ -15,11 +16,16 @@ spec:
         name: kube-prometheus-stack
         namespace: monitoring
       version: "82.18.0"
-      interval: 12h
   valuesFrom:
     - kind: ConfigMap
       name: kube-prometheus-stack-values
   install:
     crds: Create
+    remediation:
+      retries: 3
   upgrade:
     crds: CreateReplace
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
