@@ -13,9 +13,10 @@ prometheus:
   service:
     type: ClusterIP
   prometheusSpec:
-    podMonitorNamespaceSelector:
-      matchLabels:
-        app.kubernetes.io/component: monitoring
+    # This restricts monitoring to specific labeled namespaces
+    # podMonitorNamespaceSelector:
+    #   matchLabels:
+    #     app.kubernetes.io/component: monitoring
     # Resource allocation
     resources:
       requests:
@@ -52,7 +53,10 @@ alertmanager:
 # Grafana configuration
 grafana:
   enabled: true
-  # adminPassword: ""
+  adminUser: admin
+  admin:
+    existingSecret: grafana-secrets
+    passwordKey: grafana-admin-password
   defaultDashboardsEnabled: true
   deploymentStrategy:
     type: Recreate
@@ -131,8 +135,6 @@ grafana:
       url: http://prometheus-operated.monitoring.svc:9090
   # Grafana configuration
   grafana.ini:
-    # server:
-    #   root_url: https://grafana.homelab.local
     security:
       allow_embedding: true
       cookie_secure: true
@@ -212,8 +214,6 @@ kubeScheduler:
     interval: 30s
 kubeEtcd:
   enabled: false
-  # serviceMonitor:
-  #   interval: 30s
 kubeProxy:
   enabled: true
   serviceMonitor:

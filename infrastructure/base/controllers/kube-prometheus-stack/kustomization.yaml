@@ -5,6 +5,7 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
+  - secrets.yaml
   # - dashboards/custom-dashboard-configmap.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values

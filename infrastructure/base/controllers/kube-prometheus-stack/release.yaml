@@ -21,11 +21,5 @@ spec:
       name: kube-prometheus-stack-values
   install:
     crds: Create
-    # remediation:
-    #   retries: 3
   upgrade:
     crds: CreateReplace
-    # cleanupOnFail: true
-    # remediation:
-    #   strategy: rollback
-    #   retries: 3
