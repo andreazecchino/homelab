@@ -4,6 +4,4 @@ metadata:
   name: ca-issuer
 spec:
   ca:
-    secretRef:
-      name: ca-key-pair
-      namespace: cert-manager
+    secretName: ca-key-pair
