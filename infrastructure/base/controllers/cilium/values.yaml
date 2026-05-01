@@ -1,74 +1,74 @@
-# Use eBPF-based kube-proxy replacement
-kubeProxyReplacement: true
-
-# Kubernetes API server address
-k8sServiceHost: "kubernetes.default.svc.cluster.local"
-k8sServicePort: 443
-
-# Enable Hubble for observability
-hubble:
-  enabled: true
-  relay:
-    enabled: true
-    replicas: 1
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-  ui:
-    enabled: true
-    replicas: 1
-  metrics:
-    enabled:
-      - dns
-      - drop
-      - tcp
-      - flow
-      - port-distribution
-      - icmp
-      - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload
-
-# IP Address Management
-ipam:
-  mode: kubernetes
-
-# Enable bandwidth manager for better performance
-bandwidthManager:
-  enabled: true
-
-# Enable host firewall
-hostFirewall:
-  enabled: true
-
-# Resource limits for the Cilium agent
-resources:
-  requests:
-    cpu: 100m
-    memory: 256Mi
-  limits:
-    cpu: 1000m
-    memory: 1Gi
-
-# Operator configuration
-operator:
-  replicas: 1
-  resources:
-    requests:
-      cpu: 100m
-      memory: 128Mi
-    limits:
-      cpu: 500m
-      memory: 256Mi
-
-# Enable transparent encryption with WireGuard
-encryption:
-  enabled: true
-  type: wireguard
-  nodeEncryption: true
-
-# Enable Cilium Ingress
-ingressController:
-  enabled: true
-  default: true
-  loadbalancerMode: shared
-  enforceHttps: true
+# # Use eBPF-based kube-proxy replacement
+# kubeProxyReplacement: true
+#
+# # Kubernetes API server address
+# k8sServiceHost: "kubernetes.default.svc.cluster.local"
+# k8sServicePort: 443
+#
+# # Enable Hubble for observability
+# hubble:
+#   enabled: true
+#   relay:
+#     enabled: true
+#     replicas: 1
+#     resources:
+#       requests:
+#         cpu: 100m
+#         memory: 128Mi
+#   ui:
+#     enabled: true
+#     replicas: 1
+#   metrics:
+#     enabled:
+#       - dns
+#       - drop
+#       - tcp
+#       - flow
+#       - port-distribution
+#       - icmp
+#       - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload
+#
+# # IP Address Management
+# ipam:
+#   mode: kubernetes
+#
+# # Enable bandwidth manager for better performance
+# bandwidthManager:
+#   enabled: true
+#
+# # Enable host firewall
+# hostFirewall:
+#   enabled: true
+#
+# # Resource limits for the Cilium agent
+# resources:
+#   requests:
+#     cpu: 100m
+#     memory: 256Mi
+#   limits:
+#     cpu: 1000m
+#     memory: 1Gi
+#
+# # Operator configuration
+# operator:
+#   replicas: 1
+#   resources:
+#     requests:
+#       cpu: 100m
+#       memory: 128Mi
+#     limits:
+#       cpu: 500m
+#       memory: 256Mi
+#
+# # Enable transparent encryption with WireGuard
+# encryption:
+#   enabled: true
+#   type: wireguard
+#   nodeEncryption: true
+#
+# # Enable Cilium Ingress
+# ingressController:
+#   enabled: true
+#   default: true
+#   loadbalancerMode: shared
+#   enforceHttps: true
