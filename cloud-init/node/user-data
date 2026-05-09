@@ -1,0 +1,27 @@
+#cloud-config
+
+# Set the system's hostname
+hostname: worker-node
+manage_etc_hosts: true
+
+# Set up the keyboard layout
+keyboard:
+  model: pc105
+  layout: it
+
+# Set the system timezone
+timezone: Europe/Rome
+
+# Disable root and SSH login with password
+ssh_pwauth: false
+disable_root: true
+
+# Set users and permissions
+users:
+  - name: ... # change the username
+    groups: users,adm,sudo
+    shell: /bin/bash
+    lock_passwd: true # disable password login
+    ssh_authorized_keys:
+      - ssh-ed25519 ... # fill with SSH public key
+    sudo: ALL=(ALL) NOPASSWD:ALL # allow passwordless sudo for this use
