@@ -75,4 +75,4 @@ ingressController:
 
 # Enable socket-based load balancing
 socketLB:
-  enabled: tru
+  enabled: true
