@@ -31,11 +31,11 @@ hubble:
 # # IP Address Management
 # ipam:
 #   mode: kubernetes
-#
-# # Enable bandwidth manager for better performance
-# bandwidthManager:
-#   enabled: true
-#
+
+# Enable bandwidth manager for better performance
+bandwidthManager:
+  enabled: true
+
 # # Enable host firewall
 # hostFirewall:
 #   enabled: true
