@@ -70,7 +70,7 @@ encryption:
 ingressController:
   enabled: true
   default: true
-  # loadbalancerMode: shared
+  loadbalancerMode: snat
   enforceHttps: true
 
 # Enable socket-based load balancing
