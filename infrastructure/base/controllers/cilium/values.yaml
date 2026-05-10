@@ -60,12 +60,12 @@ operator:
       cpu: 500m
       memory: 256Mi
 
-# # Enable transparent encryption with WireGuard
-# encryption:
-#   enabled: true
-#   type: wireguard
-#   nodeEncryption: true
-#
+# Enable transparent encryption with WireGuard
+encryption:
+  enabled: true
+  type: wireguard
+  nodeEncryption: true
+
 # # Enable Cilium Ingress
 # ingressController:
 #   enabled: true
