@@ -72,3 +72,7 @@ ingressController:
   default: true
   # loadbalancerMode: shared
   enforceHttps: true
+
+# Enable socket-based load balancing
+socketLB:
+  enabled: tru
