@@ -1,9 +1,16 @@
-# ---
-# apiVersion: source.toolkit.fluxcd.io/v1
-# kind: HelmRepository
-# metadata:
-#   name: cilium
-#   namespace: kube-system
-# spec:
-#   interval: 1h
-#   url: https://helm.cilium.io/
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: cilium
+  namespace: kube-system
+spec:
+  interval: 1h
+  url: oci://quay.io/cilium/charts/cilium
+  ref:
+    tag: 1.19.3
+  verify:
+    provider: cosign
+    matchOIDCIdentity:
+      - issuer: "^https://token.actions.githubusercontent.com$"
+        subject: "^https://github.com/cilium/cilium/.*$"
