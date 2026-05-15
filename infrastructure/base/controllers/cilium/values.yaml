@@ -72,8 +72,8 @@ encryption:
 
 # Enable Cilium Ingress
 ingressController:
-  enabled: false
-  default: true
-  loadbalancerMode: shared
+  enabled: true
+  # default: true
+  # loadbalancerMode: shared
   # enforceHttps: true
 

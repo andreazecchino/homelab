@@ -9,4 +9,4 @@ spec:
     # - enp.*
     # - ens.*
   loadBalancerIPs: true
-  externalIPs: true
+  # externalIPs: true
