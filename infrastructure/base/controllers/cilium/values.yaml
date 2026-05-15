@@ -1,7 +1,7 @@
 # Use eBPF-based kube-proxy replacement
 kubeProxyReplacement: true
 
-# # Kubernetes API server address
+# Kubernetes API server address
 k8sServiceHost: 192.168.178.40
 k8sServicePort: 6443
 
@@ -18,27 +18,23 @@ hubble:
   ui:
     enabled: true
     replicas: 1
-#   metrics:
-#     enabled:
-#       - dns
-#       - drop
-#       - tcp
-#       - flow
-#       - port-distribution
-#       - icmp
-#       - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload
+  metrics:
+    enabled:
+      - dns
+      - drop
+      - tcp
+      - flow
+      - port-distribution
+      - icmp
+      - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction
 
-# IPV Address Management
+# IP Address Management
 ipam:
   mode: kubernetes
 
 # Enable bandwidth manager for better performance
 bandwidthManager:
   enabled: true
-
-# # Enable host firewall
-# hostFirewall:
-#   enabled: true
 
 # Enable L2 announcement
 l2announcements:
@@ -55,6 +51,7 @@ resources:
 
 # Operator configuration
 operator:
+  rollOutPods: true
   replicas: 1
   resources:
     requests:
@@ -64,16 +61,19 @@ operator:
       cpu: 500m
       memory: 256Mi
 
+# Rollout cilium agent pods automatically when ConfigMap is updated.
+rollOutCiliumPods: true
+
 # Enable transparent encryption with WireGuard
 encryption:
-  enabled: false
-  # type: wireguard
-  # nodeEncryption: true
+  enabled: true
+  type: wireguard
+  nodeEncryption: true
 
 # Enable Cilium Ingress
 ingressController:
   enabled: true
   default: true
   loadbalancerMode: shared
-  enforceHttps: false
+  enforceHttps: true
 
