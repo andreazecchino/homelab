@@ -13,10 +13,6 @@ prometheus:
   service:
     type: ClusterIP
   prometheusSpec:
-    # This restricts monitoring to specific labeled namespaces
-    # podMonitorNamespaceSelector:
-    #   matchLabels:
-    #     app.kubernetes.io/component: monitoring
     # Resource allocation
     resources:
       requests:
@@ -202,17 +198,12 @@ coreDns:
   enabled: true
   serviceMonitor:
     interval: 30s
+
 kubeControllerManager:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
+  enabled: false
 kubeScheduler:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
+  enabled: false
 kubeEtcd:
   enabled: false
 kubeProxy:
-  enabled: true
-  serviceMonitor:
-    interval: 30s
+  enabled: false
