@@ -66,12 +66,10 @@ encryption:
   type: wireguard
   nodeEncryption: true
 
-# # Enable Cilium Ingress
-# ingressController:
-#   enabled: true
-#   default: true
-#   hostNetwork:
-#     enabled: true
-#   # loadbalancerMode: dedicated
-#   # enforceHttps: true
+# Enable Cilium Ingress
+ingressController:
+  enabled: true
+  default: true
+  loadbalancerMode: dedicated
+  enforceHttps: true
 
