@@ -5,8 +5,8 @@ metadata:
   namespace: kube-system
 spec:
   interfaces:
-    - eth.*
-    - enp.*
-    - ens.*
+    - eth0
+    # - enp.*
+    # - ens.*
   loadBalancerIPs: true
   externalIPs: true

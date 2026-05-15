@@ -66,14 +66,14 @@ operator:
 
 # Enable transparent encryption with WireGuard
 encryption:
-  enabled: true
-  type: wireguard
-  nodeEncryption: true
+  enabled: false
+  # type: wireguard
+  # nodeEncryption: true
 
 # Enable Cilium Ingress
 ingressController:
-  enabled: true
+  enabled: false
   default: true
   loadbalancerMode: shared
-  enforceHttps: true
+  # enforceHttps: true
 
