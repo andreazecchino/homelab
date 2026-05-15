@@ -14,6 +14,6 @@ Key characteristics:
 
 **K3s** is a certified Kubernetes distribution that reduces the dependencies and steps required to build a Kubernetes cluster without compromising core functionality. Specifically designed to run on low-resource hardware, it's a good choice for leveraging existing single-board computers or other resource-constrained devices.
 
-**Raspberry Pi OS Lite** is used as the base operating system. This is the officially supported and recommended OS for Raspberry Pi, ensuring optimal compatibility and hardware utilization.
+**Ubuntu Server** is used as operating system to address Cilium installation requirements that demand 48-bit virtual address support. Although Raspberry Pi OS Lite is the officially supported OS for Raspberry Pi and the one used in the early stages of the project, Ubuntu Server ensure compatibility with Cilium while managing hardware resources effectively.
 
 Aligning with the CLI-first approach, **K9s** is the primary management tool for the cluster, providing a text-based user interface (TUI) for real-time cluster monitoring and debugging.

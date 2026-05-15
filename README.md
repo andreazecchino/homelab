@@ -12,6 +12,7 @@ For additional informations:
   - [GitOps](docs/gitops.md)
   - [Security](docs/security.md)
   - [Storage](docs/storage.md)
+  - [Networking](docs/networking.md)
 
 ## Hardware
 
@@ -26,8 +27,8 @@ At the moment it isn't reachable from the Internet.
 
 ## Technology Stack
 
-- [Raspberry Pi OS](https://www.raspberrypi.com/software/): Raspberry Pi official operating system
-- [K3s](https://k3s.io): Lightweight Kubernetes distribution for resource-retrained, remote or IoT environments.
+- [Ubuntu Server](https://ubuntu.com/download/raspberry-pi): OS flavor for Raspberry Pi
+- [K3s](https://k3s.io): Lightweight Kubernetes distribution for resource-retrained, remote or IoT environments
 - [K9s](https://github.com/derailed/k9s): Terminal-based UI for managing Kubernetes clusters
 - [Cloud-init](https://cloud-init.io): Open source tool for automatically initializing and customizing an instance of a Linux distribution
 - [FluxCD](https://fluxcd.io): GitOps tool to automate the deployment and lifecycle management of applications and infrastructure on Kubernetes
@@ -35,6 +36,7 @@ At the moment it isn't reachable from the Internet.
 - [Prometheus](https://prometheus.io): Open source metrics collection and alerting system
 - [Grafana](https://grafana.com): Web-based visualization and dashboarding platform for querying and displaying metrics
 - [Cert-manager](https://cert-manager.io/): Open source, cloud native certificate management controller
+- [Cilium](https://cilium.io/): Open source networking, security and observability solution utilizing eBPF technology
 
 
 ## Deployed Applications
