@@ -6,7 +6,5 @@ metadata:
 spec:
   interfaces:
     - eth0
-    # - enp.*
-    # - ens.*
   loadBalancerIPs: true
-  # externalIPs: true
+  externalIPs: true
