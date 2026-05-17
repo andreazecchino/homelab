@@ -38,18 +38,18 @@ spec:
             drop: ["ALL"]
         envFrom:
           - configMapRef:
-              name: postgres-configmap
+              name: commafeed-db-configmap
           - secretRef:
-              name: postgres-secrets
+              name: commafeed-db-secrets
         volumeMounts:
-          - name: postgres-volume
+          - name: commafeed-db-volume
             mountPath: /var/lib/postgresql
         ports:
           - containerPort: 5432
             protocol: TCP
   volumeClaimTemplates:
   - metadata:
-      name: postgres-volume
+      name: commafeed-db-volume
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: longhorn
