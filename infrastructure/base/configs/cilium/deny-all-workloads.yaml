@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: deny-all-ingress
+  name: deny-all-workloads
   namespace: workloads
 spec:
   endpointSelector: {}
@@ -11,5 +11,5 @@ spec:
         - all
   egressDeny:
     # Deny all egress traffic
-    - fromEntities:
+    - toEntities:
         - all
