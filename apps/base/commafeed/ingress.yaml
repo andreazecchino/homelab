@@ -3,12 +3,15 @@ kind: Ingress
 metadata:
   name: commafeed-ingress
   labels:
-    app: commafeed
+    # app: commafeed
+    app.kubernetes.io/name: commafeed
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
     cert-manager.io/duration: 2160h
     cert-manager.io/renew-before: 360h
+    ingress.cilium.io/loadbalancer-mode: shared
 spec:
+  ingressClassName: cilium
   tls:
   - hosts:
     - commafeed.homelab.local

@@ -3,18 +3,26 @@ kind: Deployment
 metadata:
   name: commafeed
   labels:
-    app: commafeed
+    # app: commafeed
+    app.kubernetes.io/name: commafeed
+    app.kubernetes.io/version: "7.0.0"
+    app.kubernetes.io/component: app
+    app.kubernetes.io/part-of: commafeed
+    app.kubernetes.io/managed-by: FluxCD
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: commafeed
+      # app: commafeed
+      app.kubernetes.io/name: commafeed
   template:
     metadata:
       labels:
-        app: commafeed
+        # app: commafeed
+        app.kubernetes.io/name: commafeed
     spec:
       securityContext:
+        runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 3000
         fsGroup: 2000
@@ -24,6 +32,9 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
           envFrom:
             - configMapRef:
                 name: commafeed-configmap

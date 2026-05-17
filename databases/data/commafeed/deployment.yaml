@@ -1,42 +1,53 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: postgres
-  labels:
-    app: postgres
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
-      containers:
-      - name: postgres 
-        image: postgres:18.3-alpine3.23
-        imagePullPolicy: IfNotPresent
-        securityContext:
-          allowPrivilegeEscalation: false
-        envFrom:
-          - configMapRef:
-              name: postgres-configmap
-          - secretRef:
-              name: postgres-secrets
-        volumeMounts:
-          - name: postgres-volume
-            mountPath: /var/lib/postgresql 
-        ports:
-          - containerPort: 5432
-            protocol: TCP
-      volumes:
-        - name: postgres-volume
-          persistentVolumeClaim:
-            claimName: postgres-pvc
-      restartPolicy: Always
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: commafeed-db
+#   labels:
+#     # app: postgres
+#     app.kubernetes.io/name: commafeed-db
+#     app.kubernetes.io/version: "18.3"
+#     app.kubernetes.io/component: database
+#     app.kubernetes.io/part-of: commafeed
+#     app.kubernetes.io/managed-by: FluxCD
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       # app: postgres
+#       app.kubernetes.io/name: commafeed-db
+#   template:
+#     metadata:
+#       labels:
+#         # app: postgres
+#         app.kubernetes.io/name: commafeed-db
+#     spec:
+#       securityContext:
+#         runAsNonRoot: true
+#         # runAsUser: 1000
+#         # runAsGroup: 3000
+#         # fsGroup: 2000
+#       containers:
+#       - name: commafeed-db
+#         image: postgres:18.3-alpine3.23
+#         imagePullPolicy: IfNotPresent
+#         securityContext:
+#           # allowPrivilegeEscalation: false
+#           # readOnlyRootFilesystem: true
+#           capabilities:
+#             drop: ["ALL"]
+#         envFrom:
+#           - configMapRef:
+#               name: postgres-configmap
+#           - secretRef:
+#               name: postgres-secrets
+#         volumeMounts:
+#           - name: postgres-volume
+#             mountPath: /var/lib/postgresql 
+#         ports:
+#           - containerPort: 5432
+#             protocol: TCP
+#       volumes:
+#         - name: postgres-volume
+#           persistentVolumeClaim:
+#             claimName: postgres-pvc
+#       restartPolicy: Always
