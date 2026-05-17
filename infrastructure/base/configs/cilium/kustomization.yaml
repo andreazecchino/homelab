@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - loadbalancer-ip-pool.yaml
   - l2-announcement-policy.yaml
+  - deny-all-ingress.yaml
