@@ -5,9 +5,11 @@ metadata:
   namespace: workloads
 spec:
   endpointSelector: {}
-  ingress: []
-  egress: []
-  # ingressDeny:
-  #   # Deny all ingress traffic
-  #   - fromEntities:
-  #       - all
+  ingressDeny:
+    # Deny all ingress traffic
+    - fromEntities:
+        - all
+  egressDeny:
+    # Deny all egress traffic
+    - fromEntities:
+        - all
