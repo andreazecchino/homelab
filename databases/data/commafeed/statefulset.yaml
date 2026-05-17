@@ -31,11 +31,11 @@ spec:
       - name: commafeed-db
         image: postgres:18.3-alpine3.23
         imagePullPolicy: IfNotPresent
-        securityContext:
+        # securityContext:
           # allowPrivilegeEscalation: false
           # readOnlyRootFilesystem: true
-          capabilities:
-            drop: ["ALL"]
+          # capabilities:
+          #   drop: ["ALL"]
         envFrom:
           - configMapRef:
               name: commafeed-db-configmap
