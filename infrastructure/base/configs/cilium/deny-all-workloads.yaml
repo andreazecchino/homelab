@@ -9,7 +9,7 @@ spec:
     # Deny all ingress traffic
     - fromEntities:
         - all
-  egressDeny:
-    # Deny all egress traffic
-    - toEntities:
-        - all
+  # egressDeny:
+  #   # Deny all egress traffic
+  #   - toEntities:
+  #       - all
