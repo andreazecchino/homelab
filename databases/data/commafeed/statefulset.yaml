@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/name: commafeed-db
     spec:
       securityContext:
-        runAsNonRoot: true
+        # runAsNonRoot: true
         # runAsUser: 1000
         # runAsGroup: 3000
         # fsGroup: 2000
