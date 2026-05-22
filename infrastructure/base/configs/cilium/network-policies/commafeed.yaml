@@ -34,8 +34,8 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
-    - toEntities:
-        - {} # world
+    - toEntities: {}
+      #   - world
       # toPorts:
       #   - ports:
       #       - port: "443"
