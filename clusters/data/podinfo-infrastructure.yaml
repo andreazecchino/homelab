@@ -5,9 +5,9 @@ metadata:
   name: infrastructure
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 5m # 1h
   retryInterval: 2m
-  timeout: 5m
+  timeout: 3m # 5m
   sourceRef:
     kind: GitRepository
     name: podinfo
