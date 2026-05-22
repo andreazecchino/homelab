@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - loadbalancer-ip-pool.yaml
   - l2-announcement-policy.yaml
-  - network-policies
+  - network-policies/deny-all-workloads.yaml
