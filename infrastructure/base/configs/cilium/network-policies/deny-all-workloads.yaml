@@ -7,5 +7,5 @@ spec:
   endpointSelector: {}
   ingress:
     - {}
-  egress:
-    - {}
+  # egress:
+  #   - {}
