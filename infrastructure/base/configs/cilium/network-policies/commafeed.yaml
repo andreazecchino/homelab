@@ -35,10 +35,10 @@ spec:
             dns:
               - matchPattern: "*"
     - toEntities:
-        - world
-      toPorts:
-        - ports:
-            - port: "443"
+        - {} # world
+      # toPorts:
+      #   - ports:
+      #       - port: "443"
     - toEndpoints:
         - matchLabels:
             app.kubernetes.io/component: database
