@@ -23,22 +23,22 @@ spec:
         - ports:
             - port: "443"
   egress:
-    # - toEndpoints:
-    #     - matchLabels:
-    #         io.kubernetes.pod.namespace: kube-system
-    #         k8s-app: kube-dns
-    #   toPorts:
-    #     - ports:
-    #         - port: "53"
-    #           protocol: UDP
-    #       rules:
-    #         dns:
-    #           - matchPattern: "*"
-    # - toEntities:
-    #     - world
-    #   toPorts:
-    #     - ports:
-    #         - port: "443"
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
     - toEndpoints:
         - matchLabels:
             app.kubernetes.io/component: database
