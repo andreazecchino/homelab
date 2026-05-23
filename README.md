@@ -13,6 +13,7 @@ For additional informations:
   - [Security](docs/security.md)
   - [Storage](docs/storage.md)
   - [Networking](docs/networking.md)
+  - [Observability](docs/observability.md)
 
 ## Hardware
 
