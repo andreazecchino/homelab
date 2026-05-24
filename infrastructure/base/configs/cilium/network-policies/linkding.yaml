@@ -15,18 +15,18 @@ spec:
   #     #       - port: "443"
   #     #   - ports:
   #     #       - port: "80"
-  # egress:
-  #   - toEndpoints:
-  #       - matchLabels:
-  #           io.kubernetes.pod.namespace: kube-system
-  #           k8s-app: kube-dns
-  #     toPorts:
-  #       - ports:
-  #           - port: "53"
-  #             protocol: UDP
-  #         rules:
-  #           dns:
-  #             - matchPattern: "*"
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
   #   - toEntities:
   #       - world
   #     toPorts:
