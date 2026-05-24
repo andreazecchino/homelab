@@ -24,9 +24,9 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
+        # runAsUser: 1000
+        # runAsGroup: 3000
+        # fsGroup: 2000
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.45.0
@@ -34,8 +34,8 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: false
-            capabilities:
-              drop: ["ALL"]
+            # capabilities:
+            #   drop: ["ALL"]
           envFrom:
             - configMapRef:
                 name: linkding-configmap
