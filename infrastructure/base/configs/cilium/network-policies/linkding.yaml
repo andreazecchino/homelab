@@ -4,29 +4,31 @@ metadata:
   name: linkding-network-policy
   namespace: linkding
 spec:
-  endpointSelector: {}
-  ingress:
-    - fromCIDRSet:
-        - cidr: 192.168.178.22/28
-      # toPorts:
-      #   - ports:
-      #       - port: "443"
-      #   - ports:
-      #       - port: "80"
-  egress:
-    - toEndpoints:
-        - matchLabels:
-            io.kubernetes.pod.namespace: kube-system
-            k8s-app: kube-dns
-      toPorts:
-        - ports:
-            - port: "53"
-              protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
-    - toEntities:
-        - world
-      toPorts:
-        - ports:
-            - port: "443"
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/part-of: linkding
+  # ingress:
+  #   - fromCIDRSet:
+  #       - cidr: 192.168.178.22/28
+  #     # toPorts:
+  #     #   - ports:
+  #     #       - port: "443"
+  #     #   - ports:
+  #     #       - port: "80"
+  # egress:
+  #   - toEndpoints:
+  #       - matchLabels:
+  #           io.kubernetes.pod.namespace: kube-system
+  #           k8s-app: kube-dns
+  #     toPorts:
+  #       - ports:
+  #           - port: "53"
+  #             protocol: UDP
+  #         rules:
+  #           dns:
+  #             - matchPattern: "*"
+  #   - toEntities:
+  #       - world
+  #     toPorts:
+  #       - ports:
+  #           - port: "443"
