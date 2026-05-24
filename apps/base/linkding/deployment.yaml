@@ -39,4 +39,11 @@ spec:
           ports:
             - containerPort: 8000
               protocol: TCP
+          volumeMounts:
+            - name: linkding-data-volume
+              mountPath: /etc/linkding/data
       restartPolicy: Always
+      volumes:
+        - name: linkding-data-volume
+          persistentVolumeClaim:
+            claimName: linkding-data-pvc
