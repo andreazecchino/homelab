@@ -4,7 +4,6 @@ metadata:
   name: commafeed-db
 spec:
   selector:
-    # app: postgres
     app.kubernetes.io/name: commafeed-db
   type: ClusterIP
   clusterIP: None

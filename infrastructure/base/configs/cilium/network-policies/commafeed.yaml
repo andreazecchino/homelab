@@ -2,7 +2,7 @@ apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
   name: commafeed-network-policy
-  namespace: workloads
+  namespace: commafeed
 spec:
   endpointSelector:
     matchLabels:
@@ -46,4 +46,3 @@ spec:
       toPorts:
         - ports:
             - port: "5432"
-

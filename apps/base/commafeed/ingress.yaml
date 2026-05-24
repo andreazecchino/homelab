@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: commafeed-ingress
   labels:
-    # app: commafeed
     app.kubernetes.io/name: commafeed
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
