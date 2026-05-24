@@ -6,7 +6,8 @@ metadata:
 spec:
   endpointSelector: {}
   ingress:
-    - {}
+    - fromEntities:
+        - world
   egress:
     - toEndpoints:
         - matchLabels:
