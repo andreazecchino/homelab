@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - loadbalancer-ip-pool.yaml
   - l2-announcement-policy.yaml
-  - network-policies/commafeed.yaml
-  - network-policies/linkding.yaml
+  # - network-policies/commafeed.yaml
+  # - network-policies/linkding.yaml
