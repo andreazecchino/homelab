@@ -4,8 +4,6 @@ metadata:
   name: linkding-ingress
   labels:
     app.kubernetes.io/name: linkding
-    app.kubernetes.io/component: ingress
-    app.kubernetes.io/part-of: linkding
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
     cert-manager.io/duration: 2160h

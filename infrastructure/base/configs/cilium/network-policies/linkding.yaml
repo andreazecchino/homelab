@@ -4,12 +4,15 @@ metadata:
   name: linkding-network-policy
   namespace: linkding
 spec:
-  endpointSelector:
-    matchLabels:
-      app.kubernetes.io/part-of: linkding
+  endpointSelector: {}
   ingress:
-    - fromEntities:
-        - world
+    - fromCIDRSet:
+        - cidr: 192.168.178.22/28
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
   egress:
     - toEndpoints:
         - matchLabels:
@@ -22,4 +25,10 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
-
+    - toCIDRSet:
+        - cidr: 192.168.178.22/28
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
