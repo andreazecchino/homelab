@@ -41,3 +41,4 @@ Currently the cluster is running on:
 ## Deployed Applications
 
 - [Commafeed](https://www.commafeed.com): a self-hosted RSS feed reader inspired by Google Reader
+- [Linkding](https://github.com/sissbruecker/linkding): a self-hosted bookmarks manager
