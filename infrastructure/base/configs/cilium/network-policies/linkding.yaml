@@ -7,9 +7,9 @@ spec:
   endpointSelector:
     matchLabels:
       app.kubernetes.io/part-of: linkding
-  # ingress:
-  #   - fromCIDRSet:
-  #       - cidr: 192.168.178.22/28
+  ingress:
+    - fromCIDRSet:
+        - cidr: 192.168.178.22/28
   #     # toPorts:
   #     #   - ports:
   #     #       - port: "443"
