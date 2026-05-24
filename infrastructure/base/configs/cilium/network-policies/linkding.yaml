@@ -7,11 +7,12 @@ spec:
   endpointSelector:
     matchLabels:
       app.kubernetes.io/part-of: linkding
-  # ingress:
-  #   - fromEndpoints:
-  #       - {}
-  #   - fromEntities:
-  #       - world
+  ingress:
+    - fromEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "8000"
   egress:
     - toEndpoints:
         - matchLabels:
