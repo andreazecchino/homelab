@@ -17,10 +17,10 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: linkding
-        app.kubernetes.io/version: "1.45.0"
-        app.kubernetes.io/component: app
-        app.kubernetes.io/part-of: linkding
-        app.kubernetes.io/managed-by: FluxCD
+        # app.kubernetes.io/version: "1.45.0"
+        # app.kubernetes.io/component: app
+        # app.kubernetes.io/part-of: linkding
+        # app.kubernetes.io/managed-by: FluxCD
     spec:
       securityContext:
         fsGroup: 33
