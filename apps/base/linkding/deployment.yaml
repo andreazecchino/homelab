@@ -31,8 +31,6 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: false
-            capabilities:
-              drop: ["ALL"]
           envFrom:
             - configMapRef:
                 name: linkding-configmap
