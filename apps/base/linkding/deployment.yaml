@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: linkding
   labels:
+    app: linkding
     app.kubernetes.io/name: linkding
     app.kubernetes.io/version: "1.45.0"
     app.kubernetes.io/component: app
@@ -10,12 +11,15 @@ metadata:
     app.kubernetes.io/managed-by: FluxCD
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
-      app.kubernetes.io/name: linkding
+      app: linkding
   template:
     metadata:
       labels:
+        app: linkding
         app.kubernetes.io/name: linkding
         app.kubernetes.io/version: "1.45.0"
         app.kubernetes.io/component: app
