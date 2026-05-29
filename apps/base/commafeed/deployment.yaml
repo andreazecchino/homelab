@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: commafeed
   labels:
+    app: commafeed
     app.kubernetes.io/name: commafeed
     app.kubernetes.io/version: "7.0.0"
     app.kubernetes.io/component: app
@@ -12,10 +13,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: commafeed
+      app: commafeed
   template:
     metadata:
       labels:
+        app: commafeed
         app.kubernetes.io/name: commafeed
         app.kubernetes.io/version: "7.0.0"
         app.kubernetes.io/component: app

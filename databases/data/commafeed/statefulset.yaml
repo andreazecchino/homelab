@@ -3,6 +3,7 @@ kind: StatefulSet
 metadata:
   name: commafeed-db
   labels:
+    app: commafeed-db
     app.kubernetes.io/name: commafeed-db
     app.kubernetes.io/version: "18.3"
     app.kubernetes.io/component: database
@@ -13,10 +14,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: commafeed-db
+      app: commafeed-db
   template:
     metadata:
       labels:
+        app: commafeed-db
         app.kubernetes.io/name: commafeed-db
         app.kubernetes.io/version: "18.3"
         app.kubernetes.io/component: database
