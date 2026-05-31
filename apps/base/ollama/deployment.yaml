@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama
+  namespace: ai-edge
+  labels:
+    app: ollama
+    app.kubernetes.io/name: ollama
+    app.kubernetes.io/version: "0.24.0"
+    app.kubernetes.io/component: server
+    app.kubernetes.io/part-of: ai-edge
+    app.kubernetes.io/managed-by: FluxCD
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: ollama
+  template:
+    metadata:
+      labels:
+        app: ollama
+        app.kubernetes.io/name: ollama
+        app.kubernetes.io/version: "0.24.0"
+        app.kubernetes.io/component: server
+        app.kubernetes.io/part-of: ai-edge
+        app.kubernetes.io/managed-by: FluxCD
+    spec:
+      containers:
+        - name: ollama
+          image: ollama/ollama:0.24.0
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: ollama-configmap
+          ports:
+            - containerPort: 11434
+              protocol: TCP
+          # lifecycle:
+          #   postStart:
+          #     exec:
+          #       command:
+          #         - sh
+          #         - -c
+          #         - |
+          #           until ollama list; do
+          #             echo "Waiting for Ollama to be ready..."
+          #             sleep 2
+          #           done
+          #           ollama pull $MODEL_NAME
+          # env:
+          #   - name: MODEL_NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: ollama-configmap
+          #         key: MODEL_NAME
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "1500Mi"
+            limits:
+              cpu: "2000m"
+              memory: "2000Mi"
+          volumeMounts:
+            - name: ollama-model-volume
+              mountPath: /root/.ollama
+          startupProbe:
+            httpGet:
+              path: /
+              port: 11434
+            failureThreshold: 30
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 11434
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: "/api/tags"
+              port: 11434
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 5
+      restartPolicy: Always
+      volumes:
+        - name: ollama-model-volume
+          persistentVolumeClaim:
+            claimName: ollama-model-pvc
