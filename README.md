@@ -43,3 +43,4 @@ Currently the cluster is running on:
 - [Commafeed](https://www.commafeed.com): a self-hosted RSS feed reader inspired by Google Reader
 - [Linkding](https://github.com/sissbruecker/linkding): a self-hosted bookmarks manager
 - [Ollama](https://ollama.com/): open-source tool that lets you download, run, and manage large language models on your local machine (used to test my side project [poc-py-llm](https://github.com/andreazecchino/poc-py-llm))
+- [poc-py-llm](https://github.com/andreazecchino/poc-py-llm): this is a side project I built to gain experience with AI DevOps workflows
