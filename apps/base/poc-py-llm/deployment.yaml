@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: poc-py-llm
-  namespace: ai-edge
   labels:
     app: poc-py-llm
     app.kubernetes.io/name: poc-py-llm
