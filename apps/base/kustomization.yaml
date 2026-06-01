@@ -4,3 +4,4 @@ resources:
   - commafeed
   - linkding
   - ollama
+  - poc-py-llm

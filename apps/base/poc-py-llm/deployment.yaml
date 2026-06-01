@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-py-llm
+  namespace: ai-edge
+  labels:
+    app: poc-py-llm
+    app.kubernetes.io/name: poc-py-llm
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/component: api
+    app.kubernetes.io/part-of: ai-edge
+    app.kubernetes.io/managed-by: FluxCD
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-py-llm
+  template:
+    metadata:
+      labels:
+        app: poc-py-llm
+        app.kubernetes.io/name: poc-py-llm
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/component: api
+        app.kubernetes.io/part-of: ai-edge
+        app.kubernetes.io/managed-by: FluxCD
+    spec:
+      containers:
+        - name: poc-py-llm
+          image: ghcr.io/andreazecchino/poc-py-llm:sha-d5ea80d
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: poc-py-llm-configmap
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          startupProbe:
+            httpGet:
+              path: "/health"
+              port: 8000
+            failureThreshold: 30
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: "/health"
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: "/health"
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 5
+      restartPolicy: Always

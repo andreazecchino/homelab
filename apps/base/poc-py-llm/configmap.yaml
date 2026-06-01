@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: poc-py-llm-configmap
+data:
+  OLLAMA_HOST: "http://ollama.ai-edge.svc.cluster.local:11434"
+  OLLAMA_MODEL: "smollm2:360m-instruct-q4_K_M"
