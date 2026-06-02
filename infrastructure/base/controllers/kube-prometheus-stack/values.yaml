@@ -13,6 +13,9 @@ prometheus:
   service:
     type: ClusterIP
   prometheusSpec:
+    podMonitorNamespaceSelector:
+      matchLabels:
+        app.kubernetes.io/component: monitoring
     # Resource allocation
     resources:
       requests:
