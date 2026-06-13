@@ -77,3 +77,6 @@ ingressController:
   loadbalancerMode: shared
   enforceHttps: true
 
+# Enable Cilium Gateway API
+gatewayAPI:
+  enable: true
