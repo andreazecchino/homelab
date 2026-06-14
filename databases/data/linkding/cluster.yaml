@@ -2,6 +2,12 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: linkding-db
+  labels:
+    app: linkding-db
+    app.kubernetes.io/name: linkding-db
+    app.kubernetes.io/version: "18.3"
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: linkding
 spec:
   description: Postgres cluster for the linkding application
   imageName: ghcr.io/cloudnative-pg/postgresql:18.3-minimal-trixie

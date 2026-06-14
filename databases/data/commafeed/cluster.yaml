@@ -2,6 +2,12 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: commafeed-db
+  labels:
+    app: commafeed-db
+    app.kubernetes.io/name: commafeed-db
+    app.kubernetes.io/version: "18.3"
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: commafeed
 spec:
   description: Postgres cluster for the commafeed application
   imageName: ghcr.io/cloudnative-pg/postgresql:18.3-minimal-trixie
