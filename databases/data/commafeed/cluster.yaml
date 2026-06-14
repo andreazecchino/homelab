@@ -1,0 +1,44 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: commafeed-db
+spec:
+  description: Postgres cluster for the commafeed application
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.3-minimal-trixie
+  instances: 1
+  storage:
+    pvcTemplate:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+      storageClassName: longhorn
+  bootstrap:
+    initdb:
+      database: commafeed
+      owner: commafeed
+      secret:
+        name: commafeed-db-secrets
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "500m"
+    limits:
+      memory: "384Mi"
+      cpu: "1000m"
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: commafeed-db
+              labels:
+                app: commafeed-db
+                app.kubernetes.io/name: commafeed-db
+                app.kubernetes.io/component: svc
+                app.kubernetes.io/part-of: commafeed
+            spec:
+              type: ClusterIP
