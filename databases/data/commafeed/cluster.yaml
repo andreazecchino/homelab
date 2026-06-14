@@ -5,7 +5,7 @@ metadata:
   labels:
     app: commafeed-db
     app.kubernetes.io/component: database
-    # those labels are ignored even if they are set
+    # those labels are ignored
     # app.kubernetes.io/name: commafeed-db
     # app.kubernetes.io/version: "18.3"
     # app.kubernetes.io/part-of: commafeed
@@ -51,7 +51,7 @@ spec:
               labels:
                 app: commafeed-db
                 app.kubernetes.io/part-of: commafeed
-                # those labels are ignored even if they are set
+                # those labels are ignored
                 # app.kubernetes.io/name: commafeed-db
                 # app.kubernetes.io/component: svc
             spec:
