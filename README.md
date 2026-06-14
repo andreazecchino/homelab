@@ -4,7 +4,7 @@ This repository contains all the documentation and configuration of my Kubernete
 
 ## Introduction
 
-The primary goal of this project is to build a Kubernetes cluster, learn to deploy applications and automate configuration using **GitOps** methodologies. Additionally, I plan to self-host some applications for personal use.
+The primary goal of this project is to build a Kubernetes cluster, learn to deploy applications and automate configuration using **GitOps** methodologies.
 
 For additional informations:
 
