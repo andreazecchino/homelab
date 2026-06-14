@@ -12,6 +12,12 @@ spec:
   description: Postgres cluster for the linkding application
   imageName: ghcr.io/cloudnative-pg/postgresql:18.3-minimal-trixie
   instances: 1
+  postgresql:
+    parameters:
+      checkpoint_timeout: "15min"
+      max_wal_size: "1GB"
+      min_wal_size: "512MB"
+      synchronous_commit: "off"
   storage:
     pvcTemplate:
       accessModes:

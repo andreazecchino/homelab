@@ -15,3 +15,6 @@ spec:
         namespace: cnpg-system
       version: 0.28.2
   interval: 30m
+  dependsOn:
+    - name: longhorn
+      namespace: longhorn-system
