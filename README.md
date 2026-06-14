@@ -36,6 +36,7 @@ Currently the cluster is running on:
 - [Grafana](https://grafana.com): Web-based visualization and dashboarding platform for querying and displaying metrics
 - [Cert-manager](https://cert-manager.io/): Open source, cloud native certificate management controller
 - [Cilium](https://cilium.io/): Open source networking, security and observability solution utilizing eBPF technology
+- [CloudNativePG](https://cloudnative-pg.io/): Open-source Kubernetes Operator designed for PostgreSQL workloads.
 
 
 ## Deployed Applications
