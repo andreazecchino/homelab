@@ -4,16 +4,17 @@ metadata:
   name: linkding-db
   labels:
     app: linkding-db
-    app.kubernetes.io/name: linkding-db
-    app.kubernetes.io/version: "18.3"
     app.kubernetes.io/component: database
-    app.kubernetes.io/part-of: linkding
+    # those labels are ignored even if they are set
+    # app.kubernetes.io/name: linkding-db
+    # app.kubernetes.io/version: "18.3"
+    # app.kubernetes.io/part-of: linkding
 spec:
   description: Postgres cluster for the linkding application
   imageName: ghcr.io/cloudnative-pg/postgresql:18.3-minimal-trixie
   instances: 1
   postgresql:
-    parameters:
+    parameters: # to handle low resources hardware
       checkpoint_timeout: "15min"
       max_wal_size: "1GB"
       min_wal_size: "512MB"
@@ -49,8 +50,9 @@ spec:
               name: linkding-db
               labels:
                 app: linkding-db
-                app.kubernetes.io/name: linkding-db
-                app.kubernetes.io/component: svc
                 app.kubernetes.io/part-of: linkding
+                # those labels are ignored even if they are set
+                # app.kubernetes.io/name: linkding-db
+                # app.kubernetes.io/component: svc
             spec:
               type: ClusterIP
