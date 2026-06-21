@@ -21,7 +21,8 @@ spec:
   releaseName: sealed-secrets-controller
   storageNamespace: flux-system
   targetNamespace: flux-system
-  livenessProbe:
-    enabled: false
-  readinessProbe:
-    enabled: false
+  values:
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
