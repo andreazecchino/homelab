@@ -5,6 +5,8 @@ metadata:
   name: databases
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: infrastructure
   interval: 15m
   retryInterval: 2m
   timeout: 3m

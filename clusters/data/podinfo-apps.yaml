@@ -5,6 +5,8 @@ metadata:
   name: apps
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: databases
   interval: 13m
   retryInterval: 2m
   timeout: 3m
