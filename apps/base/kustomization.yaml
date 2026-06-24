@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - commafeed
   - linkding
-  - ai-workloads
+  # - ai-workloads
