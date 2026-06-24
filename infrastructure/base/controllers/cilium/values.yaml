@@ -1,12 +1,8 @@
-# Use eBPF-based kube-proxy replacement
 kubeProxyReplacement: true
-
-# Kubernetes API server address
 k8sServiceHost: 192.168.178.40
 k8sServicePort: 6443
 
-# Enable Hubble for observability
-hubble:
+hubble: # for observability
   enabled: true
   relay:
     enabled: true
@@ -28,19 +24,12 @@ hubble:
       - icmp
       - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction
 
-# IP Address Management
 ipam:
   mode: kubernetes
 
-# Enable bandwidth manager for better performance
-bandwidthManager:
-  enabled: true
-
-# Enable L2 announcement
 l2announcements:
   enabled: true
 
-# Resource limits for the Cilium agent
 resources:
   requests:
     cpu: 100m
@@ -49,7 +38,6 @@ resources:
     cpu: 1000m
     memory: 1Gi
 
-# Operator configuration
 operator:
   rollOutPods: true
   replicas: 1
@@ -61,22 +49,16 @@ operator:
       cpu: 500m
       memory: 256Mi
 
-# Rollout cilium agent pods automatically when ConfigMap is updated.
 rollOutCiliumPods: true
 
-# Enable transparent encryption with WireGuard
 encryption:
-  enabled: true
-  type: wireguard
-  nodeEncryption: true
+  enabled: false
 
-# Enable Cilium Ingress
 ingressController:
   enabled: true
   default: true
   loadbalancerMode: shared
   enforceHttps: true
 
-# Enable Cilium Gateway API
 gatewayAPI:
   enable: true
