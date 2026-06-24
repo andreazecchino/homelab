@@ -11,3 +11,5 @@ It also offers advanced security and policies enforcement by:
 - transparent encryption
 
 Cilium is perfect for experimenting with advanced networking concepts and understanding modern cloud-native networking.
+
+The configuration applied prioritizes observability and advanced networking features while maintaining efficiency on resource-constrained hardware.
