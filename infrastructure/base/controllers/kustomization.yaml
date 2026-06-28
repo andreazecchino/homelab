@@ -6,4 +6,4 @@ resources:
   - cert-manager
   - kube-prometheus-stack
   - longhorn
-  # - cloudnative-pg
+  - cloudnative-pg
