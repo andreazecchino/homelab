@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: app-db
+  labels:
+    app: app-db
+spec:
+  serviceName: "app-db"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-db
+  template:
+    metadata:
+      labels:
+        app: app-db
+    spec:
+      # securityContext:
+        # runAsNonRoot: true
+        # runAsUser: 1000
+        # runAsGroup: 3000
+        # fsGroup: 2000
+      containers:
+      - name: app-db
+        image: postgres:18.3-alpine3.23
+        imagePullPolicy: IfNotPresent
+        # securityContext:
+          # allowPrivilegeEscalation: false
+          # readOnlyRootFilesystem: true
+          # capabilities:
+          #   drop: ["ALL"]
+        envFrom:
+          - configMapRef:
+              name: app-db-configmap
+          - secretRef:
+              name: app-db-secrets
+        volumeMounts:
+          - name: app-db-volume
+            mountPath: /var/lib/postgresql
+        ports:
+          - containerPort: 5432
+            protocol: TCP
+  volumeClaimTemplates:
+  - metadata:
+      name: app-db-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 256Mi
