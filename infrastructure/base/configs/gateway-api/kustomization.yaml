@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   # - gatewayclass.yaml # not required
   - gateway.yaml
-  - reference-grant-cert-manager.yaml
+  - reference-grant.yaml
