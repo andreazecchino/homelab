@@ -11,12 +11,21 @@ spec:
     kind: OCIRepository
     name: cilium
     # namespace is not required here
-  install:
-    crds: Create
-  upgrade:
-    crds: CreateReplace
-  driftDetection:
-    mode: enabled
   valuesFrom:
     - kind: ConfigMap
       name: cilium-values
+  dependsOn:
+    - name: gateway-api
+      namespace: flux-system
+  install:
+    crds: Create
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  driftDetection:
+    mode: enabled

@@ -14,10 +14,16 @@ spec:
         kind: HelmRepository
         name: sealed-secrets
       version: "2.18.6"
-  install:
-    crds: Create
-  upgrade:
-    crds: CreateReplace
   releaseName: sealed-secrets-controller
   storageNamespace: flux-system
   targetNamespace: flux-system
+  install:
+    crds: Create
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
