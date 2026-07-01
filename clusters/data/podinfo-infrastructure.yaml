@@ -5,6 +5,8 @@ metadata:
   name: infrastructure
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: sealed-secrets-infra
   interval: 17m
   retryInterval: 2m
   timeout: 3m
