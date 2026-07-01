@@ -14,9 +14,9 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: cilium-values
-  dependsOn:
-    - name: gateway-api
-      namespace: flux-system
+  # dependsOn:
+  #   - name: gateway-api
+  #     namespace: flux-system
   install:
     crds: Create
     remediation:
