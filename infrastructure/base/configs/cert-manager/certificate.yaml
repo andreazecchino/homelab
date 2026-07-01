@@ -5,7 +5,7 @@ metadata:
   namespace: cert-manager
 spec:
   secretName: cert-home-arpa
-  isCA: true
+  isCA: false
   dnsNames:
     - home.arpa
     - "*.home.arpa"
