@@ -3,5 +3,6 @@ kind: ClusterIssuer
 metadata:
   name: ca-issuer
 spec:
-  ca:
-    secretName: ca-key-pair
+  # ca:
+  #   secretName: ca-key-pair
+  selfSigned: {}
