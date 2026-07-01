@@ -5,8 +5,8 @@ metadata:
   name: infrastructure
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: encryption
+  # dependsOn:
+  #   - name: encryption
   interval: 17m
   retryInterval: 2m
   timeout: 3m
