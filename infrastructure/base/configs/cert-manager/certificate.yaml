@@ -7,7 +7,7 @@ spec:
   secretName: ca-key-pair
   privateKey:
     algorithm: RSA
-    size: 2048
+    size: 4096
     rotationPolicy: Always
   duration: 2160h # 90d
   renewBefore: 360h # 15d

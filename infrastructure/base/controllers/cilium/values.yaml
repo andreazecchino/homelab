@@ -56,9 +56,9 @@ encryption:
 
 ingressController:
   enabled: false
-  default: true
-  loadbalancerMode: shared
-  enforceHttps: true
+  # default: true
+  # loadbalancerMode: shared
+  # enforceHttps: true
 
 gatewayAPI:
   enabled: true
