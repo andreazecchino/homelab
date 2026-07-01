@@ -61,4 +61,4 @@ ingressController:
   enforceHttps: true
 
 gatewayAPI:
-  enable: true
+  enabled: true
