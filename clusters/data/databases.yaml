@@ -12,7 +12,7 @@ spec:
   timeout: 3m
   sourceRef:
     kind: GitRepository
-    name: podinfo
+    name: source
   path: ./databases/data
   prune: true
   wait: true

@@ -6,13 +6,13 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: sealed-secrets-infra
+    - name: encryption
   interval: 17m
   retryInterval: 2m
   timeout: 3m
   sourceRef:
     kind: GitRepository
-    name: podinfo
+    name: source
   path: ./infrastructure/base/controllers
   wait: true
   prune: true
