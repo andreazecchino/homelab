@@ -14,7 +14,7 @@
 #     kind: ClusterIssuer
 #     group: cert-manager.io
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
   name: self-signed
   namespace: cert-manager
@@ -29,10 +29,10 @@ metadata:
 spec:
   isCA: true
   privateKey:
-    algorithm: RSA
-    size: 4096
+    algorithm: ECDSA
+    size: 256
   secretName: ca
   commonName: ca
   issuerRef:
     name: self-signed
-    kind: ClusterIssuer
+    kind: Issuer
