@@ -21,6 +21,6 @@ spec:
             namespace: cert-manager
             kind: Secret
             group: ""
-      # allowedRoutes:
-      #   namespaces:
-      #     from: All
+      allowedRoutes:
+        namespaces:
+          from: All
