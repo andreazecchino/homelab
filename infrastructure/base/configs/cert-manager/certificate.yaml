@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cert-home-arpa
+  namespace: cert-manager
+spec:
+  secretName: ca-key-pair
+  privateKey:
+    algorithm: RSA
+    size: 2048
+    rotationPolicy: Always
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  isCA: true
+  revisionHistoryLimit: 1
+  dnsNames:
+    - home.arpa
+    - "*.home.arpa"
+  issuerRef:
+    name: ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io

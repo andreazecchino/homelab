@@ -22,8 +22,10 @@ spec:
       hostname: "*.home.arpa"
       tls:
         certificateRefs:
-          - kind: Secret
-            name: ca-key-pair
+          - name: cert-home-arpa
+            namespace: cert-manager
+            kind: Secret
+            group: ""
       allowedRoutes:
         namespaces:
           from: All
