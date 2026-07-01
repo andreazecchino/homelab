@@ -4,7 +4,7 @@ metadata:
   name: cert-home-arpa
   namespace: cert-manager
 spec:
-  secretName: ca-key-pair
+  secretName: cert-home-arpa
   # privateKey:
   #   algorithm: RSA
   #   size: 4096
