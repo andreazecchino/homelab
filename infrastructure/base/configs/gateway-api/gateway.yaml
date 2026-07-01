@@ -11,16 +11,16 @@ spec:
     value: 192.168.178.210
   gatewayClassName: cilium
   listeners:
-    - name: linkding
+    - name: https
       protocol: HTTPS
       port: 443
-      hostname: "linkding.home.arpa"
+      hostname: "*.home.arpa"
       tls:
         certificateRefs:
-          - name: ca # cert-home-arpa
+          - name: ca
             namespace: cert-manager
             kind: Secret
-            # group: ""
+            group: ""
       # allowedRoutes:
       #   namespaces:
       #     from: All

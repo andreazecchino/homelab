@@ -1,26 +1,3 @@
-# apiVersion: cert-manager.io/v1
-# kind: Certificate
-# metadata:
-#   name: cert-home-arpa
-#   namespace: cert-manager
-# spec:
-#   secretName: cert-home-arpa
-#   isCA: true
-#   dnsNames:
-#     - home.arpa
-#     - "*.home.arpa"
-#   issuerRef:
-#     name: ca-issuer
-#     kind: ClusterIssuer
-#     group: cert-manager.io
-# apiVersion: cert-manager.io/v1
-# kind: Issuer
-# metadata:
-#   name: self-signed
-#   namespace: cert-manager
-# spec:
-#   selfSigned: {}
-# ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -33,8 +10,10 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
+    rotationPolicy: Always
+  revisionHistoryLimit: 1
   secretName: ca
   commonName: ca
   issuerRef:
-    name: ca-issuer # self-signed
-    kind: ClusterIssuer # Issuer
+    name: ca-issuer
+    kind: ClusterIssuer
