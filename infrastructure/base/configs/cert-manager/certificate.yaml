@@ -4,15 +4,15 @@ metadata:
   name: cert-home-arpa
   namespace: cert-manager
 spec:
-  secretName: ca-key-pair
-  privateKey:
-    algorithm: RSA
-    size: 4096
-    rotationPolicy: Always
-  duration: 2160h # 90d
-  renewBefore: 360h # 15d
+  # secretName: ca-key-pair
+  # privateKey:
+  #   algorithm: RSA
+  #   size: 4096
+  #   rotationPolicy: Always
+  # revisionHistoryLimit: 1
+  # duration: 2160h # 90d
+  # renewBefore: 360h # 15d
   isCA: true
-  revisionHistoryLimit: 1
   dnsNames:
     - home.arpa
     - "*.home.arpa"
