@@ -4,9 +4,9 @@ metadata:
   name: linkding-http-route
 spec:
   parentRefs:
-    - name: cilium-gateway
-      namespace: kube-system
-      sectionName: https
+    - name: tls-gateway
+      # namespace: kube-system
+      # sectionName: https
   hostnames:
     - "linkding.home.arpa"
   rules:

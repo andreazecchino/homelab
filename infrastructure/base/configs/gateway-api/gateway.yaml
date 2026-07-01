@@ -1,7 +1,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: cilium-gateway
+  name: tls-gateway
   namespace: kube-system
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
@@ -11,23 +11,16 @@ spec:
     value: 192.168.178.210
   gatewayClassName: cilium
   listeners:
-    - name: http
-      protocol: HTTP
-      port: 80
-      hostname: "*.home.arpa"
-      allowedRoutes:
-        namespaces:
-          from: All
-    - name: https
+    - name: linkding
       protocol: HTTPS
       port: 443
-      hostname: "*.home.arpa"
+      hostname: "linkding.home.arpa"
       tls:
         certificateRefs:
-          - name: cert-home-arpa
+          - name: ca # cert-home-arpa
             namespace: cert-manager
             kind: Secret
-            group: ""
-      allowedRoutes:
-        namespaces:
-          from: All
+            # group: ""
+      # allowedRoutes:
+      #   namespaces:
+      #     from: All
