@@ -22,6 +22,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
+    - name: cert-manager
     - name: gateway-api
   interval: 30m
   retryInterval: 2m
