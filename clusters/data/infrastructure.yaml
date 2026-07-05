@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: source
-  path: ./cluster/data/infrastructure
+  path: ./cluster/data
   prune: true
   wait: true
 # ---
