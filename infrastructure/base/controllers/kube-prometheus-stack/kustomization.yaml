@@ -6,8 +6,8 @@ resources:
   - repository.yaml
   - release.yaml
   - secrets.yaml
+  - httproute.yaml
   # - dashboards/custom-dashboard-configmap.yaml
-  # - ingress.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values
     files:
