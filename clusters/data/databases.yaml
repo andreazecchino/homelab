@@ -7,14 +7,13 @@ metadata:
 spec:
   dependsOn:
     - name: sealed-secrets
-    - name: longhorn
     - name: cloudnative-pg
   interval: 30m
   retryInterval: 2m
   timeout: 3m
   sourceRef:
     kind: GitRepository
-    name: source
+    name: flux-system
   path: ./databases/data
   prune: true
   wait: true

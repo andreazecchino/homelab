@@ -12,7 +12,7 @@ spec:
   timeout: 3m
   sourceRef:
     kind: GitRepository
-    name: source
+    name: flux-system
   path: ./apps/base
   prune: true
   wait: true

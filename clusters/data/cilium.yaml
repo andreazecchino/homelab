@@ -12,7 +12,7 @@ spec:
   timeout: 3m
   sourceRef:
     kind: GitRepository
-    name: source
+    name: flux-system
   path: ./infrastructure/base/controllers/cilium
   wait: true
   prune: true
@@ -30,7 +30,7 @@ spec:
   timeout: 3m
   sourceRef:
     kind: GitRepository
-    name: source
+    name: flux-system
   path: ./infrastructure/base/configs/cilium
   wait: true
   prune: true
