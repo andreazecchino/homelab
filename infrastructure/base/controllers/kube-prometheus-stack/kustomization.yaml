@@ -7,6 +7,8 @@ resources:
   - release.yaml
   - secrets.yaml
   - httproute.yaml
+  - podmonitors.yaml
+  - servicemonitors.yaml
   # - dashboards/custom-dashboard-configmap.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values
