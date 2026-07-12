@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: tempo
+  namespace: tempo
+spec:
+  interval: 30m
+  timeout: 15m
+  chart:
+    spec:
+      chart: tempo-distributed
+      sourceRef:
+        kind: HelmRepository
+        name: tempo
+        namespace: tempo
+      version: "2.2.3"
+  valuesFrom:
+    - kind: ConfigMap
+      name: tempo-values
+  install:
+    crds: Create
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 
