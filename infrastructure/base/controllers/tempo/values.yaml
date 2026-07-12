@@ -1,11 +1,11 @@
 tempo:
-  # storage:
-  #   trace:
-  #     backend: local
-  #     local:
-  #       path: /var/tempo/traces
-  #     wal:
-  #       path: /var/tempo/wal
+  storage:
+    trace:
+      backend: local
+      local:
+        path: /var/tempo/traces
+      wal:
+        path: /var/tempo/wal
   retention: 72h
   resources:
     requests:
@@ -21,25 +21,3 @@ persistence:
   size: 2Gi
   accessModes:
     - ReadWriteOnce
-
-config:
-  distributor:
-    rate_limit_bytes: 10000000
-    rate_limit_span: 10000
-  ingester:
-    lifecycler:
-      ring:
-        replication_factor: 1
-        kvstore:
-          store: inmemory
-  storage:
-    trace:
-      backend: local
-      local:
-        path: /var/tempo/traces
-      wal:
-        path: /var/tempo/wal
-  querier:
-    max_concurrent_queries: 20
-  metrics_generator:
-    enabled: false
