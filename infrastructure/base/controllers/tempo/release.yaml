@@ -8,7 +8,7 @@ spec:
   timeout: 15m
   chart:
     spec:
-      chart: tempo-distributed
+      chart: tempo
       sourceRef:
         kind: HelmRepository
         name: tempo
