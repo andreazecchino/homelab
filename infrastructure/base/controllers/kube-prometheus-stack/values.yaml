@@ -149,7 +149,7 @@ grafana:
     - name: Tempo
       type: tempo
       access: proxy
-      url: http://tempo.tempo.svc:3100
+      url: http://tempo.tempo.svc:3200
   # Grafana configuration
   grafana.ini:
     security:
