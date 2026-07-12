@@ -11,8 +11,8 @@ spec:
       chart: loki
       sourceRef:
         kind: HelmRepository
-        name: grafana-community
-        namespace: flux-system
+        name: loki
+        namespace: loki
       version: "18.4.4"
   valuesFrom:
     - kind: ConfigMap
