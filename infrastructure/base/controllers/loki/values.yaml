@@ -1,6 +1,6 @@
 loki:
   commonConfig:
-    path_prefix: /var/loki
+    path_prefix: /mnt/storage/longhorn/loki # /var/loki
     replication_factor: 1
   storage:
     type: filesystem
