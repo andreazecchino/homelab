@@ -20,7 +20,7 @@ loki:
   limits_config:
     volume_enabled: true
 
-deploymentMode: Monolithic
+deploymentMode: SingleBinary
 singleBinary:
   replicas: 1
   resources:
@@ -48,13 +48,13 @@ minio:
 gateway:
   enabled: false
 
-monitoring:
-  selfMonitoring:
-    enabled: false
-    grafanaAgent:
-      installOperator: false
-  lokiCanary:
-    enabled: false
+# monitoring:
+#   selfMonitoring:
+#     enabled: false
+#     grafanaAgent:
+#       installOperator: false
+#   lokiCanary:
+#     enabled: false
 
 test:
   enabled: false
@@ -63,4 +63,7 @@ chunksCache:
   enabled: false
 
 lokiCanary:
+  enabled: false
+
+resultsCache:
   enabled: false
