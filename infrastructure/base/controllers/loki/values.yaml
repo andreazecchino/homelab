@@ -18,7 +18,7 @@ loki:
   pattern_ingester:
     enabled: true
   limits_config:
-    volume_enabled: true
+    volume_enabled: false
 
 deploymentMode: SingleBinary
 singleBinary:
