@@ -48,14 +48,6 @@ minio:
 gateway:
   enabled: false
 
-# monitoring:
-#   selfMonitoring:
-#     enabled: false
-#     grafanaAgent:
-#       installOperator: false
-#   lokiCanary:
-#     enabled: false
-
 test:
   enabled: false
 

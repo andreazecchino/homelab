@@ -139,6 +139,13 @@ grafana:
     - name: Prometheus
       type: prometheus
       url: http://prometheus-operated.monitoring.svc:9090
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki.loki.svc:3100
+      jsonData:
+        timeout: 60
+        maxLines: 1000
   # Grafana configuration
   grafana.ini:
     security:
