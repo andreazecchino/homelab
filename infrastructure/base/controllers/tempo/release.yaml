@@ -26,4 +26,4 @@ spec:
     cleanupOnFail: true
     remediation:
       strategy: rollback
-      retries: 
+      retries: 3
