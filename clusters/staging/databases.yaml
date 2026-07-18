@@ -13,6 +13,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./databases/base
+  path: ./databases/staging
   prune: true
   wait: true
