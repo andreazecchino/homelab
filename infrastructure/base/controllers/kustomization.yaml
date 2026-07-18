@@ -1,10 +1,9 @@
-# apiVersion: kustomize.config.k8s.io/v1beta1
-# kind: Kustomization
-# resources:
-#   - sealed-secrets
-#   - gateway-api
-#   - cilium
-#   - cert-manager
-#   - longhorn
-#   - kube-prometheus-stack
-#   - cloudnative-pg
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - sealed-secrets
+  - gateway-api
+  - cilium
+  - cert-manager
+  - longhorn
+  - cloudnative-pg

@@ -6,14 +6,13 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: sealed-secrets
-    - name: cloudnative-pg
+    - name: infrastructure
   interval: 30m
   retryInterval: 2m
   timeout: 3m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./databases/data
+  path: ./databases/base
   prune: true
   wait: true
