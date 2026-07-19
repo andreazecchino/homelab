@@ -3,7 +3,7 @@ loki:
     path_prefix: /var/loki
     replication_factor: 1
   storage:
-    type: filesystem
+    type: "filesystem"
     filesystem:
       chunks_directory: /var/loki/chunks
       rules_directory: /var/loki/rules
@@ -26,8 +26,6 @@ loki:
     max_cache_freshness_per_query: 10m
     reject_old_samples: true
     reject_old_samples_max_age: 168h
-  ui:
-    enabled: true
 
 deploymentMode: Monolithic # SingleBinary
 singleBinary:
