@@ -59,10 +59,12 @@ test:
   enabled: false
 
 chunksCache:
-  enabled: false
+  enabled: true
+  allocatedMemory: 128
 
 lokiCanary:
   enabled: false
 
 resultsCache:
-  enabled: false
+  enabled: true
+  allocatedMemory: 128
