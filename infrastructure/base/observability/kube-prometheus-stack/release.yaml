@@ -19,9 +19,6 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: kube-prometheus-stack-values
-  dependsOn:
-    - name: sealed-secrets
-      namespace: flux-system
   install:
     crds: Create
     remediation:

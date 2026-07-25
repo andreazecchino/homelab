@@ -10,9 +10,9 @@ prometheus:
   service:
     type: ClusterIP
   prometheusSpec:
-    podMonitorNamespaceSelector:
-      matchLabels:
-        app.kubernetes.io/component: monitoring
+    # podMonitorNamespaceSelector:
+    #   matchLabels:
+    #     app.kubernetes.io/component: monitoring
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -146,10 +146,6 @@ grafana:
       jsonData:
         timeout: 60
         maxLines: 1000
-    - name: Tempo
-      type: tempo
-      access: proxy
-      url: http://tempo.tempo.svc:3200
   # Grafana configuration
   grafana.ini:
     security:
