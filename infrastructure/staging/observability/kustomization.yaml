@@ -4,5 +4,5 @@ resources:
   - namespace.yaml
   - kube-prometheus-stack
   - alloy
-  # - loki
+  - loki
   # - tempo
