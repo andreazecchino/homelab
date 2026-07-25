@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: alloy
         namespace: monitoring
-      version: "1.18.0"
+      version: "1.11.0"
   valuesFrom:
     - kind: ConfigMap
       name: alloy-values
