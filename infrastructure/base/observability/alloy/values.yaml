@@ -33,6 +33,12 @@ alloy:
         }
       }
 
+      otelcol.processor.batch "default" {
+        output {
+          traces = [otelcol.exporter.otlp.default.input]
+        }
+      }
+
       otelcol.exporter.otlp "default" {
         client {
           endpoint = "http://tempo.monitoring:4318"
