@@ -143,6 +143,9 @@ grafana:
       jsonData:
         timeout: 60
         maxLines: 1000
+    - name: Tempo
+      type: tempo
+      url: http://tempo.monitoring.svc:3200
   # Grafana configuration
   grafana.ini:
     security:

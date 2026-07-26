@@ -22,6 +22,22 @@ alloy:
           url = "http://loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push"
         }
       }
+
+      otelcol.receiver.otlp "default" {
+        http {
+          endpoint="0.0.0.0:4318"
+        }
+
+        output {
+          traces  = [otelcol.processor.batch.default.input]
+        }
+      }
+
+      otelcol.exporter.otlp "default" {
+        client {
+          endpoint = "http://tempo.monitoring:4318"
+        }
+      }
   resources:
     requests:
       cpu: 50m

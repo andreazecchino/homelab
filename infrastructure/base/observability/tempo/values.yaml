@@ -14,6 +14,13 @@ tempo:
     limits:
       cpu: 250m
       memory: 256Mi
+  traces:
+    otlp:
+      http:
+        enabled: true
+  metaMonitoring:
+    serviceMonitor:
+      enabled: true
 
 persistence:
   enabled: true
