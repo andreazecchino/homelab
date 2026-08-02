@@ -1,16 +1,16 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: linkding-db
+  name: commafeed-db
   labels:
-    app: linkding-db
+    app: commafeed-db
     app.kubernetes.io/component: database
     # those labels are ignored
-    # app.kubernetes.io/name: linkding-db
+    # app.kubernetes.io/name: commafeed-db
     # app.kubernetes.io/version: "18.3"
-    # app.kubernetes.io/part-of: linkding
+    # app.kubernetes.io/part-of: commafeed
 spec:
-  description: Postgres cluster for the linkding application
+  description: Postgres cluster for the commafeed application
   imageName: ghcr.io/cloudnative-pg/postgresql:18.3-minimal-trixie
   instances: 1
   postgresql:
@@ -39,10 +39,10 @@ spec:
       storageClassName: longhorn
   bootstrap:
     initdb:
-      database: linkding
-      owner: linkding
+      database: commafeed
+      owner: commafeed
       secret:
-        name: linkding-db-secrets
+        name: commafeed-db-secrets
   resources:
     requests:
       memory: "256Mi"
@@ -57,12 +57,12 @@ spec:
         - selectorType: rw
           serviceTemplate:
             metadata:
-              name: linkding-db
+              name: commafeed-db
               labels:
-                app: linkding-db
-                app.kubernetes.io/part-of: linkding
+                app: commafeed-db
+                app.kubernetes.io/part-of: commafeed
                 # those labels are ignored
-                # app.kubernetes.io/name: linkding-db
+                # app.kubernetes.io/name: commafeed-db
                 # app.kubernetes.io/component: svc
             spec:
               type: ClusterIP
