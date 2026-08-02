@@ -2,7 +2,7 @@
 
 ## Cilium
 
-Cilium is an open source, cloud native solution for providing, securing, and observing network connectivity between workloads. Unlike `kube-proxy`, which relies on iptables, Cilium uses eBPF (extended Berkeley Packet Filter) for efficient kernel-level networking, reducing overhead compared to traditional iptables-based CNIs. 
+Cilium is an open source, cloud native solution for providing, securing, and observing network connectivity between workloads. Unlike `kube-proxy`, which relies on iptables, Cilium uses eBPF (extended Berkeley Packet Filter) for efficient kernel-level networking, reducing overhead compared to traditional iptables-based CNIs.
 
 It also offers advanced security and policies enforcement by:
 

@@ -21,8 +21,8 @@ Currently the cluster is running on:
 
 | Node | Role | Hardware |
 | ---- | ---- | -------- |
-| Raspberry Pi 4 | Control Plane | 4GB RAM, 64GB microSD (OS) + 256GB USB Flash Drive (Longhorn) |
-| Raspberry Pi 4 | Worker Node | 4GB RAM, 64GB microSD (OS) + 256GB USB Flash Drive (Longhorn) |
+| Raspberry Pi 4 | Control Plane | 4GB RAM, 256GB USB Flash Drive (OS + Longhorn) |
+| Raspberry Pi 4 | Worker Node | 4GB RAM, 256GB USB Flash Drive (OS + Longhorn) |
 
 ## Technology Stack
 
@@ -36,12 +36,16 @@ Currently the cluster is running on:
 - [Grafana](https://grafana.com): Web-based visualization and dashboarding platform for querying and displaying metrics
 - [Cert-manager](https://cert-manager.io/): Open source, cloud native certificate management controller
 - [Cilium](https://cilium.io/): Open source networking, security and observability solution utilizing eBPF technology
-- [CloudNativePG](https://cloudnative-pg.io/): Open-source Kubernetes Operator designed for PostgreSQL workloads.
-
+- [CloudNativePG](https://cloudnative-pg.io/): Open source Kubernetes Operator designed for PostgreSQL workloads
+- Disabled due to resources contraint:
+  - [Alloy](https://grafana.com/docs/alloy/latest/): Open source telemetry collector which gathers metrics, logs and traces
+  - [Loki](https://grafana.com/docs/loki/latest/): Log aggregation system
+  - [Tempo](https://grafana.com/docs/tempo/latest/): Open source distributed tracing backend
 
 ## Deployed Applications
 
 - [Commafeed](https://www.commafeed.com): a self-hosted RSS feed reader inspired by Google Reader
 - [Linkding](https://github.com/sissbruecker/linkding): a self-hosted bookmarks manager
-- [Ollama](https://ollama.com/): open-source tool that lets you download, run, and manage large language models on your local machine (used to test my side project [poc-py-llm](https://github.com/andreazecchino/poc-py-llm))
-- [poc-py-llm](https://github.com/andreazecchino/poc-py-llm): this is a side project I built to gain experience with AI DevOps workflows
+- Experimental:
+  - [Ollama](https://ollama.com/): open-source tool that lets you download, run, and manage large language models on your local machine (used to test my side project [poc-py-llm](https://github.com/andreazecchino/poc-py-llm))
+  - [poc-py-llm](https://github.com/andreazecchino/poc-py-llm): this is a side project I built to gain experience with AI DevOps workflows
