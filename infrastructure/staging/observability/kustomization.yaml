@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - kube-prometheus-stack
+  # Not suited for MicroSD/USB Flash Drive, use NVME instead
   # - alloy
   # - loki
   # - tempo

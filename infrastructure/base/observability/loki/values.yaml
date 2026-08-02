@@ -38,10 +38,10 @@ singleBinary:
     limits:
       cpu: 500m
       memory: 512Mi
-  # persistence:
-  #   enabled: true
-  #   storageClass: longhorn
-  #   size: 5Gi
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    size: 5Gi
 
 backend:
   replicas: 0

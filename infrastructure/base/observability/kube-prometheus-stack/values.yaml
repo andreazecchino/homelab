@@ -10,17 +10,17 @@ prometheus:
   service:
     type: ClusterIP
   prometheusSpec:
-    # storageSpec:
-    #   volumeClaimTemplate:
-    #     spec:
-    #       storageClassName: longhorn
-    #       accessModes:
-    #         - ReadWriteOnce
-    #       resources:
-    #         requests:
-    #           storage: 10Gi
-    # retention: 7d
-    # walCompression: true
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: longhorn
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Gi
+    retention: 7d
+    walCompression: true
     resources:
       requests:
         cpu: 100m
@@ -42,16 +42,16 @@ alertmanager:
   alertmanagerSpec:
     strategy:
       type: Recreate
-    # storage:
-    #   volumeClaimTemplate:
-    #     spec:
-    #       storageClassName: longhorn
-    #       accessModes:
-    #         - ReadWriteOnce
-    #       resources:
-    #         requests:
-    #           storage: 512Mi
-    # retention: 72h
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: longhorn
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 512Mi
+    retention: 72h
     resources:
       requests:
         cpu: 50m
