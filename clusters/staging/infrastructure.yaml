@@ -23,6 +23,7 @@ metadata:
 spec:
   dependsOn:
     - name: infrastructure
+    - name: observability
   interval: 30m
   retryInterval: 2m
   timeout: 3m
