@@ -8,3 +8,10 @@ Encryption at rest has been enabled at server first startup by passing the flag 
 
 I chose Sealed Secrets to enable GitOps workflows with secrets in version control. It uses a Custom Resource Definition, allowing you to manage encrypted secrets with the same `kubectl` commands and workflows as regular Kubernetes manifests. Sealed secrets can be safely committed to Git repositories since only the cluster's sealing key can decrypt them, keeping the encryption key secure within the cluster.
 
+## Container hardening
+
+I demonstrate Kubernetes security best practices through hardened application manifests designed for production environments. Where applicable, my security implementations include:
+
+- `drop: ["ALL"]` to eliminate unnecessary Linux capabilities
+- `allowPrivilegeEscalation: false` to prevent privilege escalation attacks
+- `runAsNonRoot: true` and `runAsUser: 1000` to enforce non-root container execution
