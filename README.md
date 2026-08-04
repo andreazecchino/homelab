@@ -37,15 +37,21 @@ Currently the cluster is running on:
 - [Cert-manager](https://cert-manager.io/): Open source, cloud native certificate management controller
 - [Cilium](https://cilium.io/): Open source networking, security and observability solution utilizing eBPF technology
 - [CloudNativePG](https://cloudnative-pg.io/): Open source Kubernetes Operator designed for PostgreSQL workloads
-- Disabled due to resources contraint:
-  - [Alloy](https://grafana.com/docs/alloy/latest/): Open source telemetry collector which gathers metrics, logs and traces
-  - [Loki](https://grafana.com/docs/loki/latest/): Log aggregation system
-  - [Tempo](https://grafana.com/docs/tempo/latest/): Open source distributed tracing backend
+
+#### Disabled due to resource constraints
+
+MicroSD and USB flash drives lack the performance required for:
+
+- [Alloy](https://grafana.com/docs/alloy/latest/): Telemetry collector which gathers metrics, logs and traces
+- [Loki](https://grafana.com/docs/loki/latest/): Log aggregation system
+- [Tempo](https://grafana.com/docs/tempo/latest/): Distributed tracing backend
 
 ## Deployed Applications
 
 - [Commafeed](https://www.commafeed.com): a self-hosted RSS feed reader inspired by Google Reader
 - [Linkding](https://github.com/sissbruecker/linkding): a self-hosted bookmarks manager
-- Experimental:
-  - [Ollama](https://ollama.com/): open-source tool that lets you download, run, and manage large language models on your local machine (used to test my side project [poc-py-llm](https://github.com/andreazecchino/poc-py-llm))
-  - [poc-py-llm](https://github.com/andreazecchino/poc-py-llm): this is a side project I built to gain experience with AI DevOps workflows
+
+#### Experimental:
+
+- [Ollama](https://ollama.com/): Open source tool for running large language models locally
+- [poc-py-llm](https://github.com/andreazecchino/poc-py-llm): A side project I built to explore AI DevOps workflows with Ollama
