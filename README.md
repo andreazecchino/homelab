@@ -14,6 +14,7 @@ For additional informations:
   - [Storage](docs/storage.md)
   - [Networking](docs/networking.md)
   - [Observability](docs/observability.md)
+- [Quick setup](docs/quicksetup.md)
 
 ## Hardware
 
