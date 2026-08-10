@@ -25,6 +25,10 @@ Currently the cluster is running on:
 | Raspberry Pi 4 | Control Plane | 4GB RAM, 256GB USB Flash Drive (OS + Longhorn) |
 | Raspberry Pi 4 | Worker Node | 4GB RAM, 256GB USB Flash Drive (OS + Longhorn) |
 
+<p align="left">
+  <img src="docs/assets/img/cluster.jpg" width="400"/>
+</p>
+
 ## Technology Stack
 
 - [Ubuntu Server](https://ubuntu.com/download/raspberry-pi): OS flavor for Raspberry Pi
