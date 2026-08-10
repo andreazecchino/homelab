@@ -4,3 +4,4 @@ namespace: linkding
 resources:
   - secrets.yaml
   - cluster.yaml
+  - networkpolicy.yaml

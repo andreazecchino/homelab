@@ -1,17 +1,17 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: commafeed-db-ingress
-  namespace: commafeed
+  name: linkding-db-ingress
+  namespace: linkding
 spec:
   description: "Database only accepts ingress from its own app, denies everything else"
   endpointSelector:
     matchLabels:
-      cnpg.io/cluster: commafeed-db
+      cnpg.io/cluster: linkding-db
   ingress:
     - fromEndpoints:
         - matchLabels:
-            app: commafeed
+            app: linkding
       toPorts:
         - ports:
             - port: "5432"

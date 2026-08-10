@@ -5,3 +5,4 @@ resources:
   - namespace.yaml
   - database
   - app
+  - networkpolicy-default-deny.yaml
