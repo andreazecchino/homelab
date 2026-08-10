@@ -4,3 +4,4 @@ namespace: commafeed
 resources:
   - secrets.yaml
   - cluster.yaml
+  - networkpolicy.yaml

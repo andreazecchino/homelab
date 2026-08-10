@@ -1,0 +1,19 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: commafeed-db-ingress
+  namespace: commafeed
+spec:
+  description: "Database only accepts ingress from its own app, denies everything else"
+  endpointSelector:
+    matchLabels:
+      cnpg.io/cluster: commafeed-db
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app: commafeed
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
+  egress: []
