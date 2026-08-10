@@ -4,7 +4,7 @@ metadata:
   name: commafeed-app-ingress
   namespace: commafeed
 spec:
-  description: "App only accepts ingress on its app port"
+  description: "App only accepts ingress on its app port, egress to database and world"
   endpointSelector:
     matchLabels:
       app: commafeed

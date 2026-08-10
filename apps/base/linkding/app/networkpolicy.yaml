@@ -4,7 +4,7 @@ metadata:
   name: linkding-app-ingress
   namespace: linkding
 spec:
-  description: "App only accepts ingress on its app port"
+  description: "App only accepts ingress on its app port, egress to database and world"
   endpointSelector:
     matchLabels:
       app: linkding

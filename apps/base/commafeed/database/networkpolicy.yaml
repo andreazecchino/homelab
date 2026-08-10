@@ -4,7 +4,7 @@ metadata:
   name: commafeed-db-ingress
   namespace: commafeed
 spec:
-  description: "Database only accepts ingress from its own app, denies everything else"
+  description: "Database only accepts ingress from its own app, egress to API server"
   endpointSelector:
     matchLabels:
       cnpg.io/cluster: commafeed-db
@@ -16,3 +16,7 @@ spec:
         - ports:
             - port: "5432"
               protocol: TCP
+  egress:
+  - toEntities:
+    - host
+    - kube-apiserver
