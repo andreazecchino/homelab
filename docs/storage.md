@@ -9,3 +9,9 @@ The Longhorn deployment is optimized for small Kubernetes clusters on commodity 
 ### Multi-Attach Volume Errors
 
 With `ReadWriteOnce` volumes, I choose the `Recreate` deployment strategy to prevent conflicts. `ReadWriteOnce` volumes can only attach to one pod at a time. `RollingUpdate` deployments start new pods before terminating old ones, which causes the new pods to fail when attempting to attach the same volume. `Recreate` solves this by terminating all existing pods first, ensuring the volume is fully released before new pods attempt to attach it.
+
+## CloudNativePG
+
+CloudNativePG is a Kubernetes operator for PostgreSQL. It exposes native CRDs for declarative cluster management and includes features such as automated failover and backup management.
+
+I chose this operator as the storage solution for the applications because it simplifies database lifecycle management alongside application deployments, but resource constraints force me to drop some functionality and heavily tune database parameters. The settings tune PostgreSQL for a low‑memory, low‑I/O environment: fewer checkpoints, smaller memory allocations, and trade‑offs between durability and throughput to reduce disk and memory pressure.
