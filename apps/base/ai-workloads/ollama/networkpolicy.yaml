@@ -1,0 +1,19 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: ollama-ingress
+  namespace: ollama
+spec:
+  description: ""
+  endpointSelector:
+    matchLabels:
+      app: ollama
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app: poc-py-llm
+      toPorts:
+        - ports:
+            - port: "11434"
+              protocol: TCP
+  egress: []

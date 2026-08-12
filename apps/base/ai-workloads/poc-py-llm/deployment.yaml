@@ -5,7 +5,7 @@ metadata:
   labels:
     app: poc-py-llm
     app.kubernetes.io/name: poc-py-llm
-    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/version: "0.3.0"
     app.kubernetes.io/component: api
     app.kubernetes.io/part-of: ai-edge
     app.kubernetes.io/managed-by: FluxCD
@@ -19,15 +19,25 @@ spec:
       labels:
         app: poc-py-llm
         app.kubernetes.io/name: poc-py-llm
-        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/version: "0.3.0"
         app.kubernetes.io/component: api
         app.kubernetes.io/part-of: ai-edge
         app.kubernetes.io/managed-by: FluxCD
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       containers:
         - name: poc-py-llm
-          image: ghcr.io/andreazecchino/poc-py-llm:sha-d5ea80d
+          image: ghcr.io/andreazecchino/poc-py-llm:v0.3.0
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
           envFrom:
             - configMapRef:
                 name: poc-py-llm-configmap
