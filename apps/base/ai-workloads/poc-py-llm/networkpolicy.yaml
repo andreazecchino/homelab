@@ -4,7 +4,7 @@ metadata:
   name: poc-py-llm-ingress
   namespace: ai-edge
 spec:
-  description: ""
+  description: "API only accepts ingress on its app port, egress to Ollama"
   endpointSelector:
     matchLabels:
       app: poc-py-llm
