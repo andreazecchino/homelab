@@ -4,3 +4,4 @@ resources:
   - namespace.yaml
   - ollama
   - poc-py-llm
+  - networkpolicy-default-deny.yaml

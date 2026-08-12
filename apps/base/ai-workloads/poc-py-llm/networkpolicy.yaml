@@ -1,0 +1,25 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: poc-py-llm-ingress
+  namespace: ai-edge
+spec:
+  description: ""
+  endpointSelector:
+    matchLabels:
+      app: poc-py-llm
+  ingress:
+  - fromEntities: ["cluster"]
+    toPorts:
+    - ports:
+      - port: "8000"
+        protocol: TCP
+  egress:
+  - toEndpoints:
+    - matchLabels:
+        app: ollama
+    toPorts:
+    - ports:
+      - port: "11434"
+        protocol: TCP
+
